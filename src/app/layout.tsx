@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Providers } from "./provider";
 import "./globals.css";
+import { Poppins } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import Header from "../components/organisms/Header";
+import { QueryProvider } from "../providers/QueryProvider";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // Normal, Medium, SemiBold, Bold
+  variable: "--font-poppins", // Variable CSS
+  display: "swap", // Mejora rendimiento
 });
 
 export const metadata: Metadata = {
@@ -25,11 +24,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.variable} antialiased font-sans flex flex-col min-h-screen`}
       >
-        <Providers>{children}</Providers>
+        <QueryProvider>
+          <Header />
+
+          <main className="flex-grow">{children}</main>
+        </QueryProvider>
       </body>
     </html>
   );
