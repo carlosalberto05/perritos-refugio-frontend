@@ -1,10 +1,12 @@
 import { create } from "zustand";
 
+export type UserRole = "admin" | "user";
+
 interface User {
   id: string;
   email: string;
   name: string;
-  rol: "admin" | "user";
+  rol: UserRole;
 }
 
 interface AuthState {
@@ -41,9 +43,9 @@ export const useAuthStore = create<AuthStore>((set) => ({
       isLoading: false,
     }),
 
-  updateUser: (updateUser: Partial<User>) =>
+  updateUser: (updates: Partial<User>) =>
     set((state) => ({
-      user: state.user ? { ...state.user, ...updateUser } : null,
+      user: state.user ? { ...state.user, ...updates } : null,
     })),
 
   setLoading: (isLoading: boolean) => set({ isLoading }),

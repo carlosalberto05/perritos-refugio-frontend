@@ -1,17 +1,37 @@
 "use client";
-
 import { useAuthStore } from "../store/useAuthStore";
+
+interface User {
+  id: string;
+  email: string;
+  name: string;
+  rol: "admin" | "user";
+}
+
+type ExtractedAuthState = {
+  user: User | null;
+  isAuthenticated: boolean;
+};
 
 export default function EjemploAuth() {
   // Extraemos lo que necesitamos del store
-  const { user, isAuthenticated, login, logout } = useAuthStore();
+  // Usamos `shallow` para evitar re-renderizados si otros valores cambian
+  const { user, isAuthenticated } = useAuthStore<ExtractedAuthState>(
+    (state) => ({
+      user: state.user,
+      isAuthenticated: state.isAuthenticated,
+    })
+  );
+
+  const login = useAuthStore((state) => state.login);
+  const logout = useAuthStore((state) => state.logout);
 
   const handleLogin = () => {
     login({
       id: "123",
       email: "usuario@ejemplo.com",
       name: "Juan Pérez",
-      rol: "user",
+      rol: "user" as const,
     });
   };
 

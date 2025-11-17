@@ -1,13 +1,19 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { useAuthStore } from "./useAuthStore";
 
+const initialState = useAuthStore.getState();
+
+const mockUser = {
+  id: "1",
+  email: "test@example.com",
+  name: "Test User",
+  rol: "user" as const,
+};
+
 describe("useAuthStore", () => {
+  // Reiniciar el estado antes de cada prueba
   beforeEach(() => {
-    useAuthStore.setState({
-      user: null,
-      isAuthenticated: false,
-      isLoading: false,
-    });
+    useAuthStore.setState(initialState);
   });
 
   it("should have initial state", () => {
@@ -19,13 +25,6 @@ describe("useAuthStore", () => {
   });
 
   it("should login a user", () => {
-    const mockUser = {
-      id: "1",
-      email: "test@example.com",
-      name: "Test User",
-      rol: "user" as const,
-    };
-
     useAuthStore.getState().login(mockUser);
     const state = useAuthStore.getState();
 
@@ -35,13 +34,6 @@ describe("useAuthStore", () => {
   });
 
   it("should logout a user", () => {
-    const mockUser = {
-      id: "1",
-      email: "test@test.com",
-      name: "Test User",
-      rol: "user" as const,
-    };
-
     useAuthStore.getState().login(mockUser);
     useAuthStore.getState().logout();
     const state = useAuthStore.getState();
@@ -52,20 +44,13 @@ describe("useAuthStore", () => {
   });
 
   it("should update user information", () => {
-    const mockUser = {
-      id: "1",
-      email: "test@test.com",
-      name: "Test User",
-      rol: "user" as const,
-    };
-
     useAuthStore.getState().login(mockUser);
     useAuthStore.getState().updateUser({ name: "Updated Name" });
 
     const state = useAuthStore.getState();
 
     expect(state.user?.name).toBe("Updated Name");
-    expect(state.user?.email).toBe("test@test.com");
+    expect(state.user?.email).toBe(mockUser.email); // Verificar que el email no cambió));
   });
 
   it("should set loading state", () => {
