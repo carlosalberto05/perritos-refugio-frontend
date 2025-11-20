@@ -71,7 +71,7 @@ const Footer = () => {
           ))}
         </div>
         {/* Copyright y Redes Sociales */}
-        <div className="mt-8 pt-8 border-t border-gray-700 md:flex md:items-center md:justify-between">
+        <div className="mt-8 pt-8 border-t border-gray-200 md:flex md:items-center md:justify-between">
           <p className="text-sm text-gray-400">
             &copy; {currentYear} Huellitas. Todos los derechos reservados.
           </p>
