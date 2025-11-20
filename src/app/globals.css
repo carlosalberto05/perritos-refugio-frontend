@@ -1,30 +1,44 @@
 @import "tailwindcss";
 
-:root {
-  --background: #f8fafc;
-  --foreground: #1e293b;
+/* ========================================
+   COLORES PERSONALIZADOS (Tailwind v4)
+   ======================================== */
+@theme {
+  /* Paleta Primary (Azul Turquesa del Botón) */
+  --color-primary-50: #e0f7ff;
+  --color-primary-100: #b3edff;
+  --color-primary-200: #80e3ff;
+  --color-primary-300: #4dd9ff;
+  --color-primary-400: #26d0ff;
+  --color-primary-500: #00c7ff;
+  --color-primary-600: #00a3d9;
+  --color-primary-700: #007fb3;
+  --color-primary-800: #005b8c;
+  --color-primary-900: #003766;
 
-  /* Colores del degradado del botón */
-    --primary-start: #1e90ff;
-    /* Azul */
-    --primary-end: #00c7ff;
-    /* Turquesa */
+  /* Primary Dark (para degradados) */
+  --color-primary-dark-500: #1e90ff;
+  --color-primary-dark-600: #1873cc;
+
+  /* Colores de Marca */
+  --color-brand-primary: #004AAD;
+
+  /* Colores de Superficie */
+  --color-surface-light: #F5FBFF;
+  --color-surface-dark: #1F2937;
+
+  /* Fuente personalizada */
+  --font-sans: var(--font-poppins), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ========================================
+   ESTILOS GLOBALES
+   ======================================== */
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #1F2937;
 }
 
-/* Scroll suave */
 html {
   scroll-behavior: smooth;
 }
