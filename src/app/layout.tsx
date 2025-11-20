@@ -3,6 +3,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 
 import Header from "../components/organisms/Header";
+import Footer from "../components/organisms/Footer";
 import { QueryProvider } from "../providers/QueryProvider";
 
 const poppins = Poppins({
@@ -32,6 +33,7 @@ export default function RootLayout({
           <Header />
 
           <main className="flex-grow">{children}</main>
+          <Footer />
         </QueryProvider>
       </body>
     </html>
