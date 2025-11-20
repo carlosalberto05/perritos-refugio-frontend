@@ -9,7 +9,7 @@ const footerLinks = [
       { name: "Inicio", href: "/" },
       { name: "Adopción", href: "/adopcion" },
       { name: "Perritos", href: "/dogs" },
-      { name: "Contact", href: "/contact" },
+      { name: "Contacto", href: "/contact" },
     ],
   },
   {
