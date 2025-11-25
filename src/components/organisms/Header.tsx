@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Button from "../atoms/Button";
 import { FaRegHeart } from "react-icons/fa";
+import Input from "../atoms/Input";
 
 const navLinks = [
   { label: "Inicio", href: "/" },
@@ -49,6 +50,7 @@ export default function Header() {
               <FaRegHeart className="inline mr-2" />
               Donar
             </Button>
+            <Input placeholder="Buscar"></Input>
           </div>
 
           {/* Mobile Menu Button */}

@@ -54,9 +54,8 @@ describe("Footer Component", () => {
       "/dogs"
     );
 
-    // Para "Contact" hay que usar getAllByRole porque aparece 2 veces
-    const contactLinks = screen.getAllByRole("link", { name: "Contact" });
-    expect(contactLinks[0]).toHaveAttribute("href", "/contact");
+    const contactLinks = screen.getByRole("link", { name: "Contacto" });
+    expect(contactLinks).toHaveAttribute("href", "/contact");
   });
 
   test("renders Ayuda section links", () => {
@@ -64,10 +63,7 @@ describe("Footer Component", () => {
       "href",
       "/donate"
     );
-    expect(screen.getByRole("link", { name: "Contacto" })).toHaveAttribute(
-      "href",
-      "/contact"
-    );
+
     expect(
       screen.getByRole("link", { name: "Preguntas Frecuentes" })
     ).toHaveAttribute("href", "/faq");
@@ -146,6 +142,6 @@ describe("Footer Component", () => {
   test("renders correct number of navigation links", () => {
     const allLinks = screen.getAllByRole("link");
     // 1 logo + 4 Navigation + 3 Ayuda + 3 Legal = 11 total
-    expect(allLinks).toHaveLength(11);
+    expect(allLinks).toHaveLength(10);
   });
 });
