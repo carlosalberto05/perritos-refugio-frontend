@@ -16,7 +16,6 @@ const footerLinks = [
     title: "Ayuda",
     links: [
       { name: "Donar", href: "/donate" },
-      { name: "Contacto", href: "/contact" },
       { name: "Preguntas Frecuentes", href: "/faq" },
     ],
   },
