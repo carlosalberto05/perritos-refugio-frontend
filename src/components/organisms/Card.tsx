@@ -1,5 +1,6 @@
 import Button from "../atoms/Button";
 import Image from "../atoms/Image";
+import { Heart, Calendar, Ruler } from "lucide-react";
 
 export interface CardProps {
   name: string;
@@ -75,39 +76,13 @@ const Card = ({
         <div className="flex items-center gap-4 text-sm text-gray-600">
           {/* Edad */}
           <div className="flex items-center gap-1.5">
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
+            <Calendar className="w-4 h-4" />
             <span>{age}</span>
           </div>
 
           {/* Tamaño */}
           <div className="flex items-center gap-1.5">
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
-              />
-            </svg>
+            <Ruler className="w-4 h-4" />
             <span>{size}</span>
           </div>
         </div>
@@ -126,18 +101,7 @@ const Card = ({
           className="mt-4"
         >
           <div className="flex items-center justify-center gap-2">
-            <svg
-              className="w-4 h-4"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                clipRule="evenodd"
-              />
-            </svg>
+            <Heart className="w-4 h-4" />
             <span>Quiero adoptarlo</span>
           </div>
         </Button>

@@ -35,8 +35,8 @@ export default function ModalExamplesPage() {
             Modal de Adopción
           </h2>
           <p className="text-gray-600 mb-6">
-            Este es el modal que aparece cuando alguien hace clic en "Quiero
-            adoptarlo" en una card de perro.
+            Este es el modal que aparece cuando alguien hace clic en
+            &quot;Quiero adoptarlo&quot; en una card de perro.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -121,8 +121,7 @@ export default function ModalExamplesPage() {
           <div className="space-y-4">
             <p className="text-gray-700">
               Para iniciar el proceso de adopción, por favor contáctanos al
-              teléfono{" "}
-              <span className="font-semibold">+52 55 1234 5678</span> o
+              teléfono <span className="font-semibold">+52 55 1234 5678</span> o
               envíanos un email a{" "}
               <a
                 href="mailto:adopciones@patitasfelices.org"
@@ -251,8 +250,8 @@ export default function ModalExamplesPage() {
             </p>
             <p>
               El componente{" "}
-              <code className="bg-gray-100 px-2 py-1 rounded">Modal</code> es
-              un organismo porque combina múltiples átomos (Button, iconos) con
+              <code className="bg-gray-100 px-2 py-1 rounded">Modal</code> es un
+              organismo porque combina múltiples átomos (Button, iconos) con
               lógica compleja de comportamiento.
             </p>
 
