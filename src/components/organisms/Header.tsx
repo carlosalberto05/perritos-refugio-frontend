@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Button from "../atoms/Button";
 import { FaRegHeart } from "react-icons/fa";
-import Input from "../atoms/Input";
+import { LogIn, UserIcon, UserPlus } from "lucide-react";
 
 const navLinks = [
   { label: "Inicio", href: "/" },
@@ -16,13 +16,34 @@ const navLinks = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const user = false; // Replace with actual user authentication logic
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const onNavigateToDashboard = () => {
+    // Logic to navigate to user dashboard
+    console.log("Navigating to user dashboard...");
+  };
+
+  const logout = () => {
+    // Logic to log out the user
+    console.log("Logging out...");
+  };
+
+  const onNavigateToLogin = () => {
+    // Logic to navigate to login page
+    console.log("Navigating to login page...");
+  };
+
+  const onNavigateToRegister = () => {
+    // Logic to navigate to registration page
+    console.log("Navigating to registration page...");
+  };
+
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50">
+    <header className="fixed w-full top-0 left-0 rigth-0 z-50 glass-header">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -38,19 +59,53 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-primary-500 transition duration-150 ease-in-out font-medium"
+                className="text-gray-700 hover:text-blue-500 transition duration-150 ease-in-out font-medium"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
           {/* CTA Button Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="primary">
-              <FaRegHeart className="inline mr-2" />
-              Donar
-            </Button>
-            <Input placeholder="Buscar"></Input>
+
+          <div className="flex gap-3 items-center">
+            {user ? (
+              <>
+                <Button
+                  onClick={onNavigateToDashboard}
+                  variant="secondary"
+                  className="flex items-center gap-2 bg-white/90 backdrop-blur-sm hover:bg-white"
+                >
+                  <UserIcon className="w-4 h-4 mr-2" />
+                  Mi Cuenta
+                </Button>
+                <Button
+                  onClick={logout}
+                  variant="secondary"
+                  className="flex items-center gap-2 bg-white/90 backdrop-blur-sm hover:bg-white"
+                >
+                  Cerrar Sesión
+                </Button>{" "}
+              </>
+            ) : (
+              <>
+                <Button
+                  onClick={onNavigateToLogin}
+                  variant="secondary"
+                  className="flex items-center gap-2 bg-white/90 backdrop-blur-sm hover:bg-white"
+                >
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Iniciar Sesión
+                </Button>
+                <Button
+                  onClick={onNavigateToRegister}
+                  variant="secondary"
+                  className="flex items-center gap-2 gradient-primary gradient-primary-hover text-white border-0"
+                >
+                  <UserPlus className="w-4 h-4 mr-2" />
+                  Registrarse
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}

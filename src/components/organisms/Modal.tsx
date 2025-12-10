@@ -1,5 +1,7 @@
 import { useEffect, ReactNode } from "react";
+import { XIcon } from "lucide-react";
 import Button from "../atoms/Button";
+import { cn } from "@/lib/utils";
 
 export interface ModalProps {
   isOpen: boolean;
@@ -30,6 +32,7 @@ const Modal = ({
   onSecondaryAction,
   size = "md",
 }: ModalProps) => {
+  // Handle ESC key to close modal
   useEffect(() => {
     if (!isOpen || !closeOnEscape) return;
 
@@ -43,6 +46,7 @@ const Modal = ({
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen, closeOnEscape, onClose]);
 
+  // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -83,36 +87,40 @@ const Modal = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 transition-opacity"
+      className={cn(
+        "fixed inset-0 z-50 flex items-center justify-center p-4",
+        "bg-black/50 backdrop-blur-sm",
+        "transition-opacity duration-200",
+        isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+      )}
       onClick={handleOverlayClick}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
     >
       <div
-        className={`bg-white rounded-2xl shadow-2xl w-full ${sizeClasses[size]} transform transition-all`}
+        className={cn(
+          "glass-card w-full transform transition-all duration-200",
+          "shadow-2xl",
+          sizeClasses[size],
+          isOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
+        )}
         onClick={handleModalClick}
       >
         <div className="relative p-6 sm:p-8">
           {showCloseButton && (
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              className={cn(
+                "absolute top-4 right-4",
+                "text-gray-400 hover:text-gray-600",
+                "transition-colors duration-200",
+                "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                "rounded-sm p-1"
+              )}
               aria-label="Cerrar modal"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <XIcon className="w-5 h-5" />
             </button>
           )}
 

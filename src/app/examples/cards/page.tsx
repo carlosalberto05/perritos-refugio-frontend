@@ -1,10 +1,10 @@
 "use client";
 
-import Card from "@/components/organisms/Card";
+import Card from "@/components/organisms/cards/DogCard";
 
 /**
  * Página de ejemplo para el componente Card
- * 
+ *
  * Esta página demuestra diferentes casos de uso del componente Card
  * incluyendo diferentes estados de adopción y configuraciones.
  */
@@ -105,22 +105,26 @@ export default function CardExamplesPage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Sobre el Componente Card
           </h2>
-          
+
           <div className="space-y-4 text-gray-700">
             <p>
               <strong>Clasificación en Atomic Design:</strong> Organismo
             </p>
             <p>
-              El componente <code className="bg-gray-100 px-2 py-1 rounded">Card</code> es un 
-              organismo porque combina múltiples átomos (Button, Image) y potencialmente moléculas 
-              para crear una unidad funcional compleja de la interfaz.
+              El componente{" "}
+              <code className="bg-gray-100 px-2 py-1 rounded">Card</code> es un
+              organismo porque combina múltiples átomos (Button, Image) y
+              potencialmente moléculas para crear una unidad funcional compleja
+              de la interfaz.
             </p>
-            
+
             <div>
               <p className="font-semibold mb-2">Características principales:</p>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Imagen del perro con ratio de aspecto optimizado</li>
-                <li>Badge de estado de adopción (En adopción, Adoptado, Reservado)</li>
+                <li>
+                  Badge de estado de adopción (En adopción, Adoptado, Reservado)
+                </li>
                 <li>Información del perro (nombre, raza, edad, tamaño)</li>
                 <li>Descripción con texto truncado (line-clamp-2)</li>
                 <li>Botón de acción con icono de corazón</li>
@@ -130,13 +134,20 @@ export default function CardExamplesPage() {
             </div>
 
             <div>
-              <p className="font-semibold mb-2">Armonía con el sistema de diseño:</p>
+              <p className="font-semibold mb-2">
+                Armonía con el sistema de diseño:
+              </p>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Usa el componente Button atom existente</li>
-                <li>Colores coherentes con la paleta primary definida en globals.css</li>
+                <li>
+                  Colores coherentes con la paleta primary definida en
+                  globals.css
+                </li>
                 <li>Tipografía Poppins del sistema</li>
                 <li>Espaciado y bordes redondeados consistentes</li>
-                <li>Shadows y efectos de transición del globals.css (.card-hover)</li>
+                <li>
+                  Shadows y efectos de transición del globals.css (.card-hover)
+                </li>
               </ul>
             </div>
           </div>

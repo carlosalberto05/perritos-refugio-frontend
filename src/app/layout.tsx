@@ -25,9 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body
         className={`${poppins.variable} antialiased font-sans flex flex-col min-h-screen`}
+        suppressHydrationWarning
       >
         <QueryProvider>
           <Header />

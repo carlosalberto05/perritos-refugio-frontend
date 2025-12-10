@@ -1,33 +1,40 @@
 @import "tailwindcss";
 
 /* ========================================
-   COLORES PERSONALIZADOS (Tailwind v4)
+   TOKENS DE DISEÑO
+   Basados en los estilos del home (page.tsx)
    ======================================== */
 @theme {
-  /* Paleta Primary (Azul Turquesa del Botón) */
-  --color-primary-50: #e0f7ff;
-  --color-primary-100: #b3edff;
-  --color-primary-200: #80e3ff;
-  --color-primary-300: #4dd9ff;
-  --color-primary-400: #26d0ff;
-  --color-primary-500: #00c7ff;
-  --color-primary-600: #00a3d9;
-  --color-primary-700: #007fb3;
-  --color-primary-800: #005b8c;
-  --color-primary-900: #003766;
+  /* === COLORES PRINCIPALES === */
+  /* Azules del sistema (basados en blue-500 a blue-900 de Tailwind) */
+  --color-brand-blue-500: #3b82f6;
+  --color-brand-blue-600: #2563eb;
+  --color-brand-blue-900: #1e3a8a;
 
-  /* Primary Dark (para degradados) */
-  --color-primary-dark-500: #1e90ff;
-  --color-primary-dark-600: #1873cc;
+  /* Cyans del sistema (basados en cyan-300 a cyan-900) */
+  --color-brand-cyan-300: #67e8f9;
+  --color-brand-cyan-500: #06b6d4;
+  --color-brand-cyan-600: #0891b2;
+  --color-brand-cyan-900: #164e63;
 
-  /* Colores de Marca */
-  --color-brand-primary: #004AAD;
+  /* Sky del sistema (basado en sky-500 a sky-900) */
+  --color-brand-sky-500: #0ea5e9;
+  --color-brand-sky-900: #0c4a6e;
 
-  /* Colores de Superficie */
-  --color-surface-light: #F5FBFF;
-  --color-surface-dark: #1F2937;
+  /* === BACKGROUNDS === */
+  /* Background sutil del body */
+  --color-surface-light: #eff6ff;
+  /* blue-50 */
+  --color-surface-cyan: #ecfeff;
+  /* cyan-50 */
+  --color-surface-sky: #f0f9ff;
+  /* sky-50 */
 
-  /* Fuente personalizada */
+  /* === GLASSMORPHISM TOKENS === */
+  /* Usados en cards, header, etc. */
+
+
+  /* === FUENTE === */
   --font-sans: var(--font-poppins), system-ui, sans-serif;
 }
 
@@ -35,6 +42,7 @@
    ESTILOS GLOBALES
    ======================================== */
 body {
+  @apply min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50;
   font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #1F2937;
 }
@@ -43,12 +51,55 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Animación para hover en tarjetas */
+/* ========================================
+   UTILIDADES REUTILIZABLES
+   ======================================== */
+
+/* Glassmorphism para cards y overlays */
+.glass-card {
+  @apply bg-white/60 backdrop-blur-xl border border-white/30 shadow-2xl rounded-2xl;
+}
+
+.glass-card-light {
+  @apply bg-white/40 backdrop-blur-xl border border-white/20 shadow-lg rounded-2xl;
+}
+
+.glass-overlay {
+  @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+.glass-header {
+  @apply bg-white/60 backdrop-blur-xl border-b border-white/20;
+}
+
+/* Animación de hover para tarjetas */
 .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @apply transition-all duration-300 ease-in-out;
 }
 
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  @apply -translate-y-1 shadow-2xl;
+}
+
+/* Gradiente principal del tema (usado en botones, badges, etc.) */
+.gradient-primary {
+  @apply bg-gradient-to-r from-blue-500 to-cyan-500;
+}
+
+.gradient-primary-hover {
+  @apply hover:from-blue-600 hover:to-cyan-600;
+}
+
+/* Gradiente del hero background */
+.gradient-hero-overlay {
+  @apply bg-gradient-to-br from-blue-900/80 via-cyan-900/70 to-sky-900/80;
+}
+
+/* Gradiente sutil de sección */
+.gradient-section {
+  @apply bg-gradient-to-r from-blue-500/10 to-cyan-500/10;
+}
+
+.gradient-section-alt {
+  @apply bg-gradient-to-br from-cyan-500/10 to-sky-500/10;
 }

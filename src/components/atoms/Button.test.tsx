@@ -59,20 +59,20 @@ describe("Button Component", () => {
         render(<Button variant={variant}>Test</Button>);
         const buttonElement = screen.getByText("Test");
 
+        // Clases base comunes
         expect(buttonElement).toHaveClass("font-semibold");
         expect(buttonElement).toHaveClass("rounded-lg");
 
         switch (variant) {
           case "primary":
-            expect(buttonElement).toHaveClass(
-              "from-[rgba(30,144,255,0.75)] to-[rgba(0,199,255,0.62)]"
-            );
+            expect(buttonElement).toHaveClass("gradient-primary");
             expect(buttonElement).toHaveClass("text-white");
+            expect(buttonElement).toHaveClass("shadow-lg");
             break;
           case "secondary":
             expect(buttonElement).toHaveClass("bg-white");
             expect(buttonElement).toHaveClass("border");
-            expect(buttonElement).toHaveClass("border-primary-500");
+            expect(buttonElement).toHaveClass("text-gray-900");
             break;
           case "ghost":
             expect(buttonElement).toHaveClass("bg-transparent");
