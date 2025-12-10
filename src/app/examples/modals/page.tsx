@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Modal from "@/components/organisms/Modal";
-import Card from "@/components/organisms/Card";
+import Card from "@/components/organisms/cards/DogCard";
 import Button from "@/components/atoms/Button";
 
 export default function ModalExamplesPage() {

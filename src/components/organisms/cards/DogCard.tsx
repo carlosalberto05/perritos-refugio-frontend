@@ -1,8 +1,10 @@
-import Button from "../atoms/Button";
-import Image from "../atoms/Image";
+import Image from "../../atoms/Image";
+import Button from "../../atoms/Button";
+import Badge from "../../molecules/Badge";
 import { Heart, Calendar, Ruler } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-export interface CardProps {
+export interface DogCardProps {
   name: string;
   breed: string;
   age: string;
@@ -15,7 +17,7 @@ export interface CardProps {
   className?: string;
 }
 
-const Card = ({
+const DogCard = ({
   name,
   breed,
   age,
@@ -25,24 +27,27 @@ const Card = ({
   imageAlt = name,
   adoptionStatus = "En adopción",
   onAdoptClick,
-  className = "",
-}: CardProps) => {
-  const getBadgeClasses = () => {
+  className,
+}: DogCardProps) => {
+  const getBadgeVariant = () => {
     switch (adoptionStatus) {
       case "En adopción":
-        return "bg-gradient-to-r from-[rgba(30,144,255,0.9)] to-[rgba(0,199,255,0.85)] text-white";
+        return "success";
       case "Adoptado":
-        return "bg-gradient-to-r from-green-500 to-green-600 text-white";
+        return "info";
       case "Reservado":
-        return "bg-gradient-to-r from-amber-500 to-amber-600 text-white";
+        return "warning";
       default:
-        return "bg-gradient-to-r from-[rgba(30,144,255,0.9)] to-[rgba(0,199,255,0.85)] text-white";
+        return "success";
     }
   };
 
   return (
     <div
-      className={`card-hover bg-white rounded-2xl overflow-hidden shadow-md max-w-sm ${className}`}
+      className={cn(
+        "card-hover bg-white rounded-2xl overflow-hidden shadow-md max-w-sm",
+        className
+      )}
     >
       {/* Contenedor de Imagen */}
       <div className="relative h-80 w-full bg-gray-100">
@@ -54,16 +59,11 @@ const Card = ({
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
 
-        {/* Badge de Estado */}
+        {/* Badge de Estado usando Badge molecule */}
         <div className="absolute top-4 right-4">
-          <span
-            className={`
-              px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg
-              ${getBadgeClasses()}
-            `}
-          >
+          <Badge variant={getBadgeVariant()} size="md" className="shadow-lg">
             {adoptionStatus}
-          </span>
+          </Badge>
         </div>
       </div>
 
@@ -110,4 +110,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default DogCard;

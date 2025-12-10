@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Card from "./Card";
+import DogCard from "./DogCard";
 
 describe("Card Component", () => {
   const defaultProps = {
@@ -15,7 +15,7 @@ describe("Card Component", () => {
   };
 
   it("renders card with all information", () => {
-    render(<Card {...defaultProps} />);
+    render(<DogCard {...defaultProps} />);
 
     expect(screen.getByText("Luna")).toBeInTheDocument();
     expect(screen.getByText("Mestizo")).toBeInTheDocument();
@@ -29,32 +29,32 @@ describe("Card Component", () => {
   });
 
   it("renders with default adoption status", () => {
-    render(<Card {...defaultProps} />);
+    render(<DogCard {...defaultProps} />);
 
     expect(screen.getByText("En adopción")).toBeInTheDocument();
   });
 
   it("renders with custom adoption status", () => {
-    render(<Card {...defaultProps} adoptionStatus="Adoptado" />);
+    render(<DogCard {...defaultProps} adoptionStatus="Adoptado" />);
 
     expect(screen.getByText("Adoptado")).toBeInTheDocument();
   });
 
   it("renders with Reservado status", () => {
-    render(<Card {...defaultProps} adoptionStatus="Reservado" />);
+    render(<DogCard {...defaultProps} adoptionStatus="Reservado" />);
 
     expect(screen.getByText("Reservado")).toBeInTheDocument();
   });
 
   it("renders image with correct attributes", () => {
-    render(<Card {...defaultProps} imageAlt="Luna la perrita" />);
+    render(<DogCard {...defaultProps} imageAlt="Luna la perrita" />);
 
     const image = screen.getByAltText("Luna la perrita");
     expect(image).toBeInTheDocument();
   });
 
   it("uses name as default imageAlt", () => {
-    render(<Card {...defaultProps} />);
+    render(<DogCard {...defaultProps} />);
 
     const image = screen.getByAltText("Luna");
     expect(image).toBeInTheDocument();
@@ -64,7 +64,7 @@ describe("Card Component", () => {
     const handleAdoptClick = vi.fn();
     const user = userEvent.setup();
 
-    render(<Card {...defaultProps} onAdoptClick={handleAdoptClick} />);
+    render(<DogCard {...defaultProps} onAdoptClick={handleAdoptClick} />);
 
     const button = screen.getByRole("button", { name: /quiero adoptarlo/i });
     await user.click(button);
@@ -72,12 +72,27 @@ describe("Card Component", () => {
     expect(handleAdoptClick).toHaveBeenCalledTimes(1);
   });
 
+  it("triggers the onAdoptClick function when the adopt button is pressed", async () => {
+    const mockAdoptClick = vi.fn();
+    const user = userEvent.setup();
+
+    render(<DogCard {...defaultProps} onAdoptClick={mockAdoptClick} />);
+
+    const adoptButton = screen.getByRole("button", {
+      name: /quiero adoptarlo/i,
+    });
+    await user.click(adoptButton);
+
+    expect(mockAdoptClick).toHaveBeenCalled();
+    expect(mockAdoptClick).toHaveBeenCalledTimes(1);
+  });
+
   it("renders adoption button with heart icon", () => {
-    render(<Card {...defaultProps} />);
+    render(<DogCard {...defaultProps} />);
 
     const button = screen.getByRole("button", { name: /quiero adoptarlo/i });
     expect(button).toBeInTheDocument();
-    
+
     // Verificar que el botón contiene un SVG (icono de corazón)
     const svg = button.querySelector("svg");
     expect(svg).toBeInTheDocument();
@@ -85,7 +100,7 @@ describe("Card Component", () => {
 
   it("applies custom className", () => {
     const { container } = render(
-      <Card {...defaultProps} className="custom-card-class" />
+      <DogCard {...defaultProps} className="custom-card-class" />
     );
 
     const card = container.querySelector(".custom-card-class");
@@ -93,7 +108,7 @@ describe("Card Component", () => {
   });
 
   it("renders age and size icons", () => {
-    const { container } = render(<Card {...defaultProps} />);
+    const { container } = render(<DogCard {...defaultProps} />);
 
     // Verificar que hay SVGs para los iconos (calendario y tamaño)
     const svgs = container.querySelectorAll("svg");
@@ -101,7 +116,7 @@ describe("Card Component", () => {
   });
 
   it("displays full width button", () => {
-    render(<Card {...defaultProps} />);
+    render(<DogCard {...defaultProps} />);
 
     const button = screen.getByRole("button", { name: /quiero adoptarlo/i });
     expect(button.className).toContain("w-full");

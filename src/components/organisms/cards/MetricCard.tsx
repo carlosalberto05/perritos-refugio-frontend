@@ -18,11 +18,7 @@ const MetricCard = ({
   const iconClasses = `w-8 h-8 ${iconColorClass}`;
   return (
     <div
-      className={`
-        bg-white/10 backdrop-blur-md 
-        border border-white/20 rounded-2xl p-6 shadow-xl 
-        ${className}
-      `}
+      className={`glass-overlay rounded-2xl p-6 ${className}`}
     >
       <div className="flex flex-col items-center gap-2">
         <IconComponent className={iconClasses} />
