@@ -17,21 +17,15 @@ import { useState } from "react";
 import Modal from "@/components/organisms/Modal";
 import BaseCard from "@/components/organisms/cards/BaseCard";
 import SuccessStoryCard from "@/components/organisms/cards/SuccessStoryCard";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/organisms/Dialog";
 import Input from "@/components/atoms/Input";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const [selectedDog, setSelectedDog] = useState<string>("");
   const [isAdoptionModalOpen, setIsAdoptionModalOpen] =
     useState<boolean>(false);
   const [donationAmount, setDonationAmount] = useState("");
-  const [showDonationDialog, setShowDonationDialog] = useState(false);
+  const [showDonationModal, setShowDonationModal] = useState(false);
 
   const handleAdoptClick = (dogName: string) => {
     setSelectedDog(dogName);
@@ -39,7 +33,7 @@ export default function Home() {
   };
 
   const handleDonate = () => {
-    setShowDonationDialog(true);
+    setShowDonationModal(true);
   };
 
   const MetricCardElements = [
@@ -297,7 +291,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Modal
+      {/* <Modal
         isOpen={isAdoptionModalOpen}
         onClose={() => setIsAdoptionModalOpen(false)}
         title={`¡Gracias por tu interés en adoptar a ${selectedDog}!`}
@@ -341,6 +335,55 @@ export default function Home() {
             </ul>
           </div>
         </div>
+      </Modal> */}
+      <Modal
+        isOpen={isAdoptionModalOpen}
+        onClose={() => setIsAdoptionModalOpen(false)}
+        size="md"
+      >
+        <Modal.Header
+          title={`¡Gracias por tu interés en adoptar a ${selectedDog}!`}
+        />
+        <Modal.Body>
+          <div className="space-y-4">
+            <p className="text-gray-700">
+              Para iniciar el proceso de adopción, por favor contáctanos al
+              teléfono <span className="font-semibold">+52 55 1234 5678</span> o
+              envíanos un email a{" "}
+              <a
+                href="mailto:adopciones@patitasfelices.org"
+                className="text-blue-500 hover:text-blue-600 font-semibold"
+              >
+                adopciones@patitasfelices.org
+              </a>
+            </p>
+
+            <div>
+              <p className="font-semibold text-gray-900 mb-2">
+                El proceso de adopción incluye:
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <span>Entrevista inicial</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <span>Visita al refugio para conocer a {selectedDog}</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <span>Verificación de domicilio</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <span>Firma de contrato de adopción</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </Modal.Body>
+        <Modal.Actions primaryText="Entendido" />
       </Modal>
       {/* Donation Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 gradient-section">
@@ -522,72 +565,84 @@ export default function Home() {
             </div>
           </BaseCard>
         </div>
-        {/* Donation Dialog */}
-        <Dialog open={showDonationDialog} onOpenChange={setShowDonationDialog}>
-          <DialogContent className="bg-white/95 backdrop-blur-xl">
-            <DialogHeader>
-              <DialogTitle>Realizar una Donación</DialogTitle>
-              <DialogDescription>
-                Tu apoyo nos ayuda a seguir rescatando vidas. Elige la cantidad
-                que deseas donar.
-              </DialogDescription>
-            </DialogHeader>
-            <div className="space-y-4">
-              <div className="grid grid-cols-3 gap-3">
-                <Button
-                  variant="primary"
-                  onClick={() => setDonationAmount("500")}
-                  className={
-                    donationAmount === "500" ? "border-blue-500 bg-blue-50" : ""
-                  }
-                >
-                  $500
-                </Button>
-                <Button
-                  variant="primary"
-                  onClick={() => setDonationAmount("1000")}
-                  className={
-                    donationAmount === "1000"
-                      ? "border-blue-500 bg-blue-50"
-                      : ""
-                  }
-                >
-                  $1,000
-                </Button>
-                <Button
-                  variant="primary"
-                  onClick={() => setDonationAmount("2000")}
-                  className={
-                    donationAmount === "2000"
-                      ? "border-blue-500 bg-blue-50"
-                      : ""
-                  }
-                >
-                  $2,000
-                </Button>
-              </div>
 
-              <div className="space-y-2">
-                <label className="text-sm">Otra cantidad (MXN)</label>
-                <Input
-                  type="number"
-                  placeholder="Ingresa la cantidad"
-                  value={donationAmount}
-                  onChange={(e) => setDonationAmount(e.target.value)}
-                />
-              </div>
-
+        {/* Modal de Donación*/}
+        <Modal
+          isOpen={showDonationModal}
+          onClose={() => setShowDonationModal(false)}
+          size="md"
+        >
+          <Modal.Header
+            title="Realizar una Donación"
+            description="Tu apoyo nos ayuda a seguir rescatando vidas. Elige la cantidad que deseas donar."
+          />
+          <Modal.Body className="space-y-4">
+            <div className="grid grid-cols-3 gap-3">
               <Button
                 variant="primary"
-                disabled={!donationAmount}
-                className="flex items-center justify-center gap-2 w-full gradient-primary gradient-primary-hover text-white border-0"
+                onClick={() => setDonationAmount("500")}
+                className={cn(
+                  "px-4 py-2 rounded-lg font-semibold transition-all",
+                  donationAmount === "500"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                )}
               >
-                <DollarSign className="w-4 h-4 mr-2" />
-                Donar ${donationAmount || "0"} MXN
+                $500
+              </Button>
+              <Button
+                variant="primary"
+                onClick={() => setDonationAmount("1000")}
+                className={cn(
+                  "px-4 py-2 rounded-lg font-semibold transition-all",
+                  donationAmount === "1000"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                )}
+              >
+                $1,000
+              </Button>
+              <Button
+                variant="primary"
+                onClick={() => setDonationAmount("2000")}
+                className={cn(
+                  "px-4 py-2 rounded-lg font-semibold transition-all",
+                  donationAmount === "2000"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                )}
+              >
+                $2,000
               </Button>
             </div>
-          </DialogContent>
-        </Dialog>
+
+            <div className="space-y-2">
+              <label className="text-sm">Otra cantidad (MXN)</label>
+              <Input
+                type="number"
+                placeholder="Ingresa la cantidad"
+                value={donationAmount}
+                onChange={(e) => setDonationAmount(e.target.value)}
+              />
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              onClick={() => setShowDonationModal(false)}
+            >
+              Cancelar
+            </Button>
+            <Button
+              variant="primary"
+              disabled={!donationAmount}
+              className="flex items-center justify-center gap-2"
+            >
+              <DollarSign className="w-4 h-4" />
+              Donar ${donationAmount || "0"} MXN
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </section>
     </>
   );
