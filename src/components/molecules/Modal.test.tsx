@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Modal from "./Modal";
+import Modal from "../molecules/Modal";
 
 describe("Modal Component", () => {
   const defaultProps = {
@@ -64,7 +64,9 @@ describe("Modal Component", () => {
     const handleClose = vi.fn();
     const user = userEvent.setup();
 
-    render(<Modal {...defaultProps} onClose={handleClose} closeOnEscape={false} />);
+    render(
+      <Modal {...defaultProps} onClose={handleClose} closeOnEscape={false} />
+    );
 
     await user.keyboard("{Escape}");
 
@@ -75,7 +77,9 @@ describe("Modal Component", () => {
     const handleClose = vi.fn();
     const user = userEvent.setup();
 
-    const { container } = render(<Modal {...defaultProps} onClose={handleClose} />);
+    const { container } = render(
+      <Modal {...defaultProps} onClose={handleClose} />
+    );
 
     const overlay = container.querySelector('[role="dialog"]');
     if (overlay) {
@@ -100,7 +104,11 @@ describe("Modal Component", () => {
     const user = userEvent.setup();
 
     const { container } = render(
-      <Modal {...defaultProps} onClose={handleClose} closeOnOverlayClick={false} />
+      <Modal
+        {...defaultProps}
+        onClose={handleClose}
+        closeOnOverlayClick={false}
+      />
     );
 
     const overlay = container.querySelector('[role="dialog"]');
@@ -183,7 +191,9 @@ describe("Modal Component", () => {
   });
 
   it("applies correct size classes", () => {
-    const { container, rerender } = render(<Modal {...defaultProps} size="sm" />);
+    const { container, rerender } = render(
+      <Modal {...defaultProps} size="sm" />
+    );
     expect(container.querySelector(".max-w-md")).toBeInTheDocument();
 
     rerender(<Modal {...defaultProps} size="md" />);
