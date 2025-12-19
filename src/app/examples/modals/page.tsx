@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Modal from "@/components/organisms/Modal";
+import Modal from "@/components/molecules/Modal";
 import Card from "@/components/organisms/cards/DogCard";
 import Button from "@/components/atoms/Button";
 
