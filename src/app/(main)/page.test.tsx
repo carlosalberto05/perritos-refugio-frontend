@@ -2,30 +2,19 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Home from "./page";
-import Image from "@/components/atoms/Image";
+
+
 
 // Mock Next.js Image component
 vi.mock("next/image", () => ({
-  default: ({
-    src,
-    alt,
-    fill,
-    className,
-  }: {
-    src: string;
-    alt: string;
-    fill?: boolean;
-    className?: string;
-  }) => {
-    return (
-      <Image
-        src={src}
-        alt={alt}
-        className={className}
-        style={fill ? { objectFit: "cover" } : undefined}
-      />
-    );
-  },
+  default: ({ src, alt, className, style }: any) => (
+    <img 
+      src={src} 
+      alt={alt} 
+      className={className} 
+      style={style} 
+    />
+  ),
 }));
 
 describe("Home Page", () => {
