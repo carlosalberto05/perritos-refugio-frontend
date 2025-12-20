@@ -14,8 +14,11 @@ const navLinks = [
   { label: "Contacto", href: "/contact" },
 ];
 
+import { useRouter } from "next/navigation";
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
   const user = false; // Replace with actual user authentication logic
 
   const toggleMenu = () => {
@@ -23,8 +26,7 @@ export default function Header() {
   };
 
   const onNavigateToDashboard = () => {
-    // Logic to navigate to user dashboard
-    console.log("Navigating to user dashboard...");
+    router.push("/dashboard");
   };
 
   const logout = () => {
@@ -33,13 +35,11 @@ export default function Header() {
   };
 
   const onNavigateToLogin = () => {
-    // Logic to navigate to login page
-    console.log("Navigating to login page...");
+    router.push("/login");
   };
 
   const onNavigateToRegister = () => {
-    // Logic to navigate to registration page
-    console.log("Navigating to registration page...");
+    router.push("/register");
   };
 
   return (

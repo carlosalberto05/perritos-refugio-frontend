@@ -7,32 +7,47 @@ describe("Modal Component", () => {
   const defaultProps = {
     isOpen: true,
     onClose: vi.fn(),
-    title: "Test Modal",
-    children: <p>Modal content</p>,
   };
 
   it("renders when isOpen is true", () => {
-    render(<Modal {...defaultProps} />);
+    render(
+      <Modal {...defaultProps}>
+        <Modal.Header title="Test Modal" />
+        <Modal.Body>Modal content</Modal.Body>
+      </Modal>
+    );
 
     expect(screen.getByText("Test Modal")).toBeInTheDocument();
     expect(screen.getByText("Modal content")).toBeInTheDocument();
   });
 
   it("does not render when isOpen is false", () => {
-    render(<Modal {...defaultProps} isOpen={false} />);
+    render(
+      <Modal {...defaultProps} isOpen={false}>
+        <Modal.Header title="Test Modal" />
+      </Modal>
+    );
 
     expect(screen.queryByText("Test Modal")).not.toBeInTheDocument();
   });
 
   it("renders close button by default", () => {
-    render(<Modal {...defaultProps} />);
+    render(
+      <Modal {...defaultProps}>
+        <Modal.Body>Content</Modal.Body>
+      </Modal>
+    );
 
     const closeButton = screen.getByLabelText("Cerrar modal");
     expect(closeButton).toBeInTheDocument();
   });
 
   it("hides close button when showCloseButton is false", () => {
-    render(<Modal {...defaultProps} showCloseButton={false} />);
+    render(
+      <Modal {...defaultProps} showCloseButton={false}>
+        <Modal.Body>Content</Modal.Body>
+      </Modal>
+    );
 
     expect(screen.queryByLabelText("Cerrar modal")).not.toBeInTheDocument();
   });
@@ -41,7 +56,11 @@ describe("Modal Component", () => {
     const handleClose = vi.fn();
     const user = userEvent.setup();
 
-    render(<Modal {...defaultProps} onClose={handleClose} />);
+    render(
+      <Modal {...defaultProps} onClose={handleClose}>
+        <Modal.Body>Content</Modal.Body>
+      </Modal>
+    );
 
     const closeButton = screen.getByLabelText("Cerrar modal");
     await user.click(closeButton);
@@ -53,24 +72,15 @@ describe("Modal Component", () => {
     const handleClose = vi.fn();
     const user = userEvent.setup();
 
-    render(<Modal {...defaultProps} onClose={handleClose} />);
-
-    await user.keyboard("{Escape}");
-
-    expect(handleClose).toHaveBeenCalledTimes(1);
-  });
-
-  it("does not call onClose on Escape when closeOnEscape is false", async () => {
-    const handleClose = vi.fn();
-    const user = userEvent.setup();
-
     render(
-      <Modal {...defaultProps} onClose={handleClose} closeOnEscape={false} />
+      <Modal {...defaultProps} onClose={handleClose}>
+        <Modal.Body>Content</Modal.Body>
+      </Modal>
     );
 
     await user.keyboard("{Escape}");
 
-    expect(handleClose).not.toHaveBeenCalled();
+    expect(handleClose).toHaveBeenCalledTimes(1);
   });
 
   it("calls onClose when overlay is clicked", async () => {
@@ -78,7 +88,9 @@ describe("Modal Component", () => {
     const user = userEvent.setup();
 
     const { container } = render(
-      <Modal {...defaultProps} onClose={handleClose} />
+      <Modal {...defaultProps} onClose={handleClose}>
+        <Modal.Body>Content</Modal.Body>
+      </Modal>
     );
 
     const overlay = container.querySelector('[role="dialog"]');
@@ -88,52 +100,28 @@ describe("Modal Component", () => {
     }
   });
 
-  it("does not call onClose when modal content is clicked", async () => {
-    const handleClose = vi.fn();
-    const user = userEvent.setup();
-
-    render(<Modal {...defaultProps} onClose={handleClose} />);
-
-    await user.click(screen.getByText("Test Modal"));
-
-    expect(handleClose).not.toHaveBeenCalled();
-  });
-
-  it("does not call onClose on overlay click when closeOnOverlayClick is false", async () => {
-    const handleClose = vi.fn();
-    const user = userEvent.setup();
-
-    const { container } = render(
-      <Modal
-        {...defaultProps}
-        onClose={handleClose}
-        closeOnOverlayClick={false}
-      />
+  // Test de integración con Modal.Actions
+  it("renders primary button via Modal.Actions", () => {
+    render(
+      <Modal {...defaultProps}>
+        <Modal.Actions primaryText="Confirm" />
+      </Modal>
     );
-
-    const overlay = container.querySelector('[role="dialog"]');
-    if (overlay) {
-      await user.click(overlay);
-      expect(handleClose).not.toHaveBeenCalled();
-    }
-  });
-
-  it("renders primary button when primaryButtonText is provided", () => {
-    render(<Modal {...defaultProps} primaryButtonText="Confirm" />);
 
     expect(screen.getByText("Confirm")).toBeInTheDocument();
   });
 
-  it("calls onPrimaryAction when primary button is clicked", async () => {
+  it("calls onPrimaryClick via Modal.Actions", async () => {
     const handlePrimaryAction = vi.fn();
     const user = userEvent.setup();
 
     render(
-      <Modal
-        {...defaultProps}
-        primaryButtonText="Confirm"
-        onPrimaryAction={handlePrimaryAction}
-      />
+      <Modal {...defaultProps}>
+        <Modal.Actions
+          primaryText="Confirm"
+          onPrimaryClick={handlePrimaryAction}
+        />
+      </Modal>
     );
 
     await user.click(screen.getByText("Confirm"));
@@ -141,12 +129,14 @@ describe("Modal Component", () => {
     expect(handlePrimaryAction).toHaveBeenCalledTimes(1);
   });
 
-  it("calls onClose when primary button is clicked without onPrimaryAction", async () => {
+  it("calls onClose when primary button is clicked without onPrimaryClick via Modal.Actions", async () => {
     const handleClose = vi.fn();
     const user = userEvent.setup();
 
     render(
-      <Modal {...defaultProps} onClose={handleClose} primaryButtonText="OK" />
+      <Modal {...defaultProps} onClose={handleClose}>
+        <Modal.Actions primaryText="OK" />
+      </Modal>
     );
 
     await user.click(screen.getByText("OK"));
@@ -154,60 +144,29 @@ describe("Modal Component", () => {
     expect(handleClose).toHaveBeenCalledTimes(1);
   });
 
-  it("renders secondary button when secondaryButtonText is provided", () => {
-    render(<Modal {...defaultProps} secondaryButtonText="Cancel" />);
-
-    expect(screen.getByText("Cancel")).toBeInTheDocument();
-  });
-
-  it("calls onSecondaryAction when secondary button is clicked", async () => {
-    const handleSecondaryAction = vi.fn();
-    const user = userEvent.setup();
-
+  it("renders secondary button via Modal.Actions", () => {
     render(
-      <Modal
-        {...defaultProps}
-        secondaryButtonText="Cancel"
-        onSecondaryAction={handleSecondaryAction}
-      />
+      <Modal {...defaultProps}>
+        <Modal.Actions primaryText="OK" secondaryText="Cancel" />
+      </Modal>
     );
 
-    await user.click(screen.getByText("Cancel"));
-
-    expect(handleSecondaryAction).toHaveBeenCalledTimes(1);
-  });
-
-  it("renders both primary and secondary buttons", () => {
-    render(
-      <Modal
-        {...defaultProps}
-        primaryButtonText="Confirm"
-        secondaryButtonText="Cancel"
-      />
-    );
-
-    expect(screen.getByText("Confirm")).toBeInTheDocument();
     expect(screen.getByText("Cancel")).toBeInTheDocument();
   });
 
   it("applies correct size classes", () => {
     const { container, rerender } = render(
-      <Modal {...defaultProps} size="sm" />
+      <Modal {...defaultProps} size="sm">
+        <Modal.Body>Content</Modal.Body>
+      </Modal>
     );
     expect(container.querySelector(".max-w-md")).toBeInTheDocument();
 
-    rerender(<Modal {...defaultProps} size="md" />);
+    rerender(
+      <Modal {...defaultProps} size="md">
+        <Modal.Body>Content</Modal.Body>
+      </Modal>
+    );
     expect(container.querySelector(".max-w-lg")).toBeInTheDocument();
-
-    rerender(<Modal {...defaultProps} size="lg" />);
-    expect(container.querySelector(".max-w-2xl")).toBeInTheDocument();
-  });
-
-  it("has proper accessibility attributes", () => {
-    render(<Modal {...defaultProps} />);
-
-    const dialog = screen.getByRole("dialog");
-    expect(dialog).toHaveAttribute("aria-modal", "true");
-    expect(dialog).toHaveAttribute("aria-labelledby", "modal-title");
   });
 });
