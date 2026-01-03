@@ -90,6 +90,30 @@ html {
   @apply hover:from-blue-600 hover:to-cyan-600;
 }
 
+/* Gradiente de acento (Naranja/Rojo) para acciones destacadas */
+.gradient-accent {
+  @apply bg-gradient-to-r from-orange-500 to-red-500;
+}
+
+.gradient-accent-hover {
+  @apply hover:from-orange-600 hover:to-red-600;
+}
+
+/* Gradiente rosa para historias de éxito */
+.gradient-pink {
+  @apply bg-gradient-to-r from-pink-600 to-rose-500;
+}
+
+/* Gradiente animado para el botón ver perfil */
+.gradient-animated {
+  @apply bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 bg-[length:200%_auto] transition-all duration-500 hover:bg-right;
+}
+
+/* Card especial para sección de apoyo */
+.support-card {
+  @apply bg-orange-50/80 backdrop-blur-sm border border-orange-100 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm;
+}
+
 /* Gradiente del hero background */
 .gradient-hero-overlay {
   @apply bg-gradient-to-br from-blue-900/80 via-cyan-900/70 to-sky-900/80;

@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export type ButtonVariant = "primary" | "secondary" | "ghost";
+export type ButtonVariant = "primary" | "secondary" | "ghost" | "accent";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps {
@@ -43,6 +43,8 @@ const Button = ({
       "bg-white text-gray-900 shadow-sm border border-surface-light hover:shadow-lg hover:border-surface-light hover:bg-gray-50",
     ghost:
       "bg-transparent text-gray-700 hover:text-primary-500 hover:bg-gray-50 border-none shadow-none",
+    accent:
+      "gradient-accent text-white shadow-lg gradient-accent-hover active:shadow-xl",
   };
 
   return (

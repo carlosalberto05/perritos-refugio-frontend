@@ -96,7 +96,7 @@ const ShelterCard = ({
               variant="primary"
               size="lg"
               fullWidth
-              className="group relative overflow-hidden bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 bg-[length:200%_auto] transition-all duration-500 hover:bg-right"
+              className="gradient-animated"
             >
               <div className="flex items-center justify-center gap-2">
                 <span>Ver perfil y donar</span>

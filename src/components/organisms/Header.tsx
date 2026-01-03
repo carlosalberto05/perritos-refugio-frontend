@@ -7,9 +7,8 @@ import { FaRegHeart } from "react-icons/fa";
 import { LogIn, UserIcon, UserPlus } from "lucide-react";
 
 const navLinks = [
-  { label: "Inicio", href: "/" },
-  { label: "Adopción", href: "/adoption" },
-  { label: "Casos de éxito", href: "/success-stories" },
+  { label: "Adopción", href: "/adopcion" },
+  { label: "Casos de éxito", href: "/#casos-exito" }, // Changed to hash link for home sections if needed, or keeping it as is. User mentioned /adopcion specifically.
   { label: "Refugios", href: "/refugios" },
   { label: "Contacto", href: "/contact" },
 ];
@@ -47,12 +46,12 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <div className="flex items-center gap-2 text-xl font-bold text-gray-900">
+          <Link href="/" className="flex-shrink-0">
+            <div className="flex items-center gap-2 text-xl font-bold text-gray-900 cursor-pointer">
               <span className="text-2xl">🐾</span>
               <span>Huellitas</span>
             </div>
-          </div>
+          </Link>
           {/* Navigation Desktop */}
           <nav className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
