@@ -36,19 +36,16 @@ export function HeroSection({ onDonateClick }: HeroSectionProps) {
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-overlay">
               <PawPrint className="w-5 h-5 text-cyan-300" />
               <span className="text-white/90 text-sm">
-                Más de 500 vidas rescatadas desde 2018
+                Conectando rescatistas con familias en toda México
               </span>
             </div>
             {/* Main Heading */}
             <div className="space-y-6">
               <h1 className="text-5xl md:text-7xl lg:text-8xl text-white drop-shadow-2xl max-w-5xl mx-auto leading-tight">
-                Dale una segunda oportunidad a un amigo fiel
+                Encuentra a tu Compañero Perfecto
               </h1>
               <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 drop-shadow-lg">
-                Esta es una app para ayudar a rescatar, rehabilitar y encontrar
-                hogares amorosos para perritos que lo necesitan. Cada uno de
-                ellos tiene una historia única y está esperando ser parte de la
-                tuya.
+                Plataforma que conecta múltiples organizaciones de rescate animal con adoptantes. Descubre perritos cerca de ti y apoya directamente a los rescatistas.
               </p>
             </div>
             {/* CTA Buttons */}

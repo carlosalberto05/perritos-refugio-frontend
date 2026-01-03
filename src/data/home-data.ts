@@ -1,4 +1,4 @@
-import { Heart, Users, PawPrint, Home as IconHome } from "lucide-react";
+import { Heart, Users, PawPrint, Home as IconHome, Building2 } from "lucide-react";
 
 export interface MetricElement {
   IconComponent: React.ElementType;
@@ -9,9 +9,9 @@ export interface MetricElement {
 
 export const METRIC_CARD_ELEMENTS: MetricElement[] = [
   {
-    IconComponent: IconHome,
+    IconComponent: Building2,
     value: "500+",
-    label: "Rescatados",
+    label: "Rescatistas",
     iconColorClass: "text-cyan-300",
   },
   {
@@ -43,6 +43,11 @@ export interface Dog {
   adoptionStatus: "En adopción" | "Adoptado" | "Reservado";
   image: string;
   description: string;
+  shelter?: {
+    id: string; // Added ID for linking
+    name: string;
+    logo?: string;
+  };
 }
 
 export const DOGS: Dog[] = [
@@ -57,6 +62,10 @@ export const DOGS: Dog[] = [
       "https://images.unsplash.com/photo-1706745262357-5ecaa3154433?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXRlJTIwcHVwcHklMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjE4OTU4Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
     description:
       "Luna es una perrita muy cariñosa y juguetona, perfecta para familias con niños.",
+    shelter: {
+      id: "refugio-san-roque",
+      name: "Refugio San Roque",
+    },
   },
   {
     id: "2",
@@ -69,6 +78,10 @@ export const DOGS: Dog[] = [
       "https://images.unsplash.com/photo-1689185083033-fd8512790d29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxnb2xkZW4lMjByZXRyaWV2ZXIlMjBkb2d8ZW58MXx8fHwxNzYxODI2NTI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
     description:
       "Max es un perro tranquilo y leal, ideal para personas activas que disfruten de paseos.",
+    shelter: {
+      id: "huellitas-felices",
+      name: "Huellitas Felices",
+    },
   },
   {
     id: "3",
@@ -81,6 +94,10 @@ export const DOGS: Dog[] = [
       "https://images.unsplash.com/photo-1631048905843-88f82fba8fd4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxiZWFnbGUlMjBkb2d8ZW58MXx8fHwxNzYxOTI4NzE1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     description:
       "Bella es muy energética y le encanta jugar. Perfecta para hogares con espacio.",
+    shelter: {
+      id: "refugio-san-roque",
+      name: "Refugio San Roque",
+    },
   },
   {
     id: "4",
@@ -93,6 +110,10 @@ export const DOGS: Dog[] = [
       "https://images.unsplash.com/photo-1590419690008-905895e8fe0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxodXNreSUyMGRvZ3xlbnwxfHx8fDE3NjE5MjIwODN8MA&ixlib=rb-4.1.0&q=80&w=1080",
     description:
       "Rocky es un perro noble y protector, ideal para personas con experiencia.",
+    shelter: {
+      id: "amigos-cuatro-patas",
+      name: "Amigos de Cuatro Patas",
+    },
   },
   {
     id: "5",
@@ -105,6 +126,10 @@ export const DOGS: Dog[] = [
       "https://images.unsplash.com/photo-1710530911048-dd0acc539612?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFsbCUyMGRvZyUyMHNoZWx0ZXJ8ZW58MXx8fHwxNzYxOTMxMzAyfDA&lib=rb-4.1.0&q=80&w=1080",
     description:
       "Coco es muy dulce y se lleva bien con otros perros. Ideal para cualquier hogar.",
+    shelter: {
+      id: "huellitas-felices",
+      name: "Huellitas Felices",
+    },
   },
   {
     id: "6",
@@ -117,6 +142,10 @@ export const DOGS: Dog[] = [
       "https://images.unsplash.com/photo-1641349067134-245df2efdc95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxoYXBweSUyMHJlc2N1ZSUyMGRvZ3xlbnwxfHx8fDE3NjE5MzEzMDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     description:
       "Charlie es un perro maduro y calmado, perfecto para personas mayores o tranquilas.",
+    shelter: {
+      id: "rescate-animal",
+      name: "Rescate Animal",
+    },
   },
 ];
 
@@ -127,6 +156,102 @@ export interface SuccessStory {
   image: string;
   date: string;
 }
+
+export interface Shelter {
+  id: string;
+  name: string;
+  logo: string;
+  image: string;
+  rescuedCount: number;
+  location: string;
+  state: string; // Added state for filtering
+  description: string;
+  mission: string;
+  contactEmail: string;
+  contactPhone: string;
+  urgentNeeds?: string;
+}
+
+export const SHELTERS: Shelter[] = [
+  {
+    id: "refugio-san-roque",
+    name: "Refugio San Roque",
+    logo: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=200&h=200&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1444212477490-ca407925329e?q=80&w=1080&fit=crop",
+    rescuedCount: 45,
+    location: "CDMX, México",
+    state: "CDMX",
+    description:
+      "Dedicados al rescate y rehabilitación de perros en situación de calle desde hace 10 años.",
+    mission:
+      "Nuestra misión es erradicar el abandono y fomentar la adopción responsable a través de la educación y el rescate activo.",
+    contactEmail: "contacto@sanroque.org",
+    contactPhone: "+52 55 9876 5432",
+    urgentNeeds: "Alimento para cachorros y cobijas.",
+  },
+  {
+    id: "huellitas-felices",
+    name: "Huellitas Felices",
+    logo: "https://images.unsplash.com/photo-1556227191-d24277708304?q=80&w=200&h=200&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1080&fit=crop",
+    rescuedCount: 32,
+    location: "Guadalajara, Jalisco",
+    state: "Jalisco",
+    description:
+      "Un hogar temporal lleno de amor para aquellos que no tienen voz.",
+    mission:
+      "Brindar atención médica y emocional a perros rescatados, preparándolos para encontrar su familia definitiva.",
+    contactEmail: "hola@huellitasfelices.org",
+    contactPhone: "+52 33 1234 5678",
+    urgentNeeds: "Tratamientos para desparasitación.",
+  },
+  {
+    id: "amigos-cuatro-patas",
+    name: "Amigos de Cuatro Patas",
+    logo: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=200&h=200&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=1080&fit=crop",
+    rescuedCount: 28,
+    location: "Monterrey, NL",
+    state: "Nuevo León",
+    description:
+      "Comprometidos con el bienestar animal y la búsqueda de hogares amorosos.",
+    mission:
+      "Crear una comunidad de rescatistas unidos para salvar vidas y promover leyes de protección animal.",
+    contactEmail: "info@amigoscuatropatas.mx",
+    contactPhone: "+52 81 8765 4321",
+  },
+  {
+    id: "rescate-animal",
+    name: "Rescate Animal",
+    logo: "https://images.unsplash.com/photo-1544568100-847a948585b9?q=80&w=200&h=200&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1080&fit=crop",
+    rescuedCount: 15,
+    location: "Puebla, Puebla",
+    state: "Puebla",
+    description: "Pequeño pero con gran corazón, rescatando perritos en Puebla.",
+    mission: "Convertir cada historia de maltrato en una de felicidad.",
+    contactEmail: "contacto@rescateanimal.mx",
+    contactPhone: "+52 22 1234 5678",
+  },
+  {
+    id: "caninos-911",
+    name: "Caninos 911",
+    logo: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=200&h=200&fit=crop",
+    image: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=1080&fit=crop",
+    rescuedCount: 60,
+    location: "Villahermosa, Tabasco",
+    state: "Tabasco",
+    description: "El refugio más grande de Tabasco, salvando vidas desde hace años.",
+    mission: "Nuestra prioridad es el rescate de perros en situaciones críticas de maltrato o abandono.",
+    contactEmail: "ayuda@caninos911.org",
+    contactPhone: "+52 993 123 4567",
+    urgentNeeds: "Apoyo para cirugías ortopédicas.",
+  },
+];
 
 export const SUCCESS_STORIES: SuccessStory[] = [
   {

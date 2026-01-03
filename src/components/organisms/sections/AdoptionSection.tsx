@@ -30,6 +30,7 @@ const AdoptionSection = ({ onAdoptClick }: AdoptionSectionProps) => {
                 image,
                 description,
                 adoptionStatus,
+                shelter,
               }) => {
                 return (
                   <DogCard
@@ -41,6 +42,7 @@ const AdoptionSection = ({ onAdoptClick }: AdoptionSectionProps) => {
                     imageUrl={image}
                     description={description}
                     adoptionStatus={adoptionStatus}
+                    shelter={shelter}
                     onAdoptClick={() => onAdoptClick(name)}
                   />
                 );

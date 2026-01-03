@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import HeroSection from "@/components/organisms/sections/HeroSection";
 import AdoptionSection from "@/components/organisms/sections/AdoptionSection";
+import RescuersSection from "@/components/organisms/sections/RescuersSection";
 import { AdoptionModal } from "@/components/organisms/modals/AdoptionModal";
 import DonateSection from "@/components/organisms/sections/DonateSection";
 import SuccessStoriesSection from "@/components/organisms/sections/SuccessStoriesSection";
@@ -33,6 +34,9 @@ export default function Home() {
       <HeroSection onDonateClick={handleDonate} />
       {/* Adoption Section */}
       <AdoptionSection onAdoptClick={handleAdoptClick} />
+
+      {/* Rescuers Section */}
+      <RescuersSection />
 
       {/* Donation Section */}
       <DonateSection onDonateClick={handleDonate} />

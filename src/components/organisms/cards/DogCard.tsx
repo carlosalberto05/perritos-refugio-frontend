@@ -1,8 +1,9 @@
 import Image from "../../atoms/Image";
 import Button from "../../atoms/Button";
 import Badge from "../../molecules/Badge";
-import { Heart, Calendar, Ruler } from "lucide-react";
+import { Heart, Calendar, Ruler, Building2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export interface DogCardProps {
   name: string;
@@ -13,6 +14,11 @@ export interface DogCardProps {
   imageUrl: string;
   imageAlt?: string;
   adoptionStatus?: "En adopción" | "Adoptado" | "Reservado";
+  shelter?: {
+    id: string;
+    name: string;
+    logo?: string;
+  };
   onAdoptClick?: () => void;
   className?: string;
 }
@@ -26,6 +32,7 @@ const DogCard = ({
   imageUrl,
   imageAlt = name,
   adoptionStatus = "En adopción",
+  shelter,
   onAdoptClick,
   className,
 }: DogCardProps) => {
@@ -65,6 +72,30 @@ const DogCard = ({
             {adoptionStatus}
           </Badge>
         </div>
+
+        {/* Etiqueta del Refugio con efecto Blur */}
+        {shelter && (
+          <Link 
+            href={`/refugios/${shelter.id}`}
+            className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full flex items-center gap-2 shadow-sm transition-all hover:bg-white/40 hover:scale-105 active:scale-95 z-10"
+          >
+            <div className="w-6 h-6 rounded-full bg-white/40 flex items-center justify-center overflow-hidden relative">
+              {shelter.logo ? (
+                <Image
+                  src={shelter.logo}
+                  alt={shelter.name}
+                  fill
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <Building2 className="w-3.5 h-3.5 text-white" />
+              )}
+            </div>
+            <span className="text-white text-xs font-semibold whitespace-nowrap drop-shadow-sm">
+              {shelter.name}
+            </span>
+          </Link>
+        )}
       </div>
 
       {/* Contenedor de Información */}

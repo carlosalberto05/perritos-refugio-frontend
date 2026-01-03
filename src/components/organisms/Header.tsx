@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Inicio", href: "/" },
   { label: "Adopción", href: "/adoption" },
   { label: "Casos de éxito", href: "/success-stories" },
-  { label: "Refugio", href: "/shelter" },
+  { label: "Refugios", href: "/refugios" },
   { label: "Contacto", href: "/contact" },
 ];
 
