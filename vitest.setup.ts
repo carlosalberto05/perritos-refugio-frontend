@@ -1,14 +1,24 @@
-// Esto añade las extensiones de Jest DOM a Vitest, permitiendo aserciones
-// como expect(element).toBeInTheDocument()
+import React from "react";
 import "@testing-library/jest-dom";
+import { vi } from "vitest";
 
-// Si usas React Query (que lo harás), aquí irán los mocks.
-// Por ahora, lo dejamos simple.
-// import { beforeAll, afterEach, afterAll } from 'vitest';
+// Mock next/image
+vi.mock("next/image", () => ({
+  __esModule: true,
+  default: (props: any) => {
+    // eslint-disable-next-line @next/next/no-img-element
+    return React.createElement("img", { ...props, fill: props.fill ? "true" : undefined });
+  },
+}));
 
-// Puedes añadir limpieza global aquí si fuera necesario:
-/*
-afterEach(() => {
-    // Por ejemplo: cleanup(); de React Testing Library (aunque a veces se hace automáticamente)
-});
-*/
+// Mock next/navigation
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({
+    push: vi.fn(),
+    replace: vi.fn(),
+    prefetch: vi.fn(),
+    back: vi.fn(),
+  }),
+  useSearchParams: () => new URLSearchParams(),
+  usePathname: () => "",
+}));

@@ -4,11 +4,11 @@ const currentYear = new Date().getFullYear();
 
 const footerLinks = [
   {
-    title: "Navigation",
+    title: "Navegación",
     links: [
-      { name: "Inicio", href: "/" },
       { name: "Adopción", href: "/adopcion" },
-      { name: "Perritos", href: "/dogs" },
+      { name: "Casos de éxito", href: "/#casos-exito" },
+      { name: "Refugios", href: "/refugios" },
       { name: "Contacto", href: "/contact" },
     ],
   },
