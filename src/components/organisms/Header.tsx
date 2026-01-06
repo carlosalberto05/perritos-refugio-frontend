@@ -8,9 +8,8 @@ import { LogIn, UserIcon, UserPlus } from "lucide-react";
 
 const navLinks = [
   { label: "Adopción", href: "/adopcion" },
-  { label: "Casos de éxito", href: "/#casos-exito" }, // Changed to hash link for home sections if needed, or keeping it as is. User mentioned /adopcion specifically.
+  { label: "Casos de éxito", href: "/casos-de-exito" },
   { label: "Refugios", href: "/refugios" },
-  { label: "Contacto", href: "/contact" },
 ];
 
 import { useRouter } from "next/navigation";

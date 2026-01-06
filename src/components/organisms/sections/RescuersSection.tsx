@@ -1,6 +1,8 @@
+import Link from "next/link";
 import ShelterCard from "@/components/organisms/cards/ShelterCard";
 import { SHELTERS } from "@/data/home-data";
 import SectionHeader from "@/components/molecules/SectionHeader";
+import Button from "@/components/atoms/Button";
 
 const RescuersSection = () => {
   return (
@@ -14,9 +16,17 @@ const RescuersSection = () => {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SHELTERS.map((shelter) => (
+          {SHELTERS.slice(0, 3).map((shelter) => (
             <ShelterCard key={shelter.id} {...shelter} />
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link href="/refugios">
+            <Button variant="primary" size="lg">
+              Ver más
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

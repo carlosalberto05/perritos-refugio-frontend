@@ -298,6 +298,61 @@ export const SUCCESS_STORIES: SuccessStory[] = [
       name: "Refugio San Roque",
     },
   },
+  {
+    dogName: "Bruno",
+    ownerName: "Carlos Pérez",
+    story: "Bruno pasó 2 años en el refugio esperando a su humano ideal. Hoy vive feliz en una casa con un gran jardín.",
+    image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=1080&fit=crop",
+    date: "Octubre 2024",
+    shelter: {
+      id: "huellitas-felices",
+      name: "Huellitas Felices",
+    },
+  },
+  {
+    dogName: "Molly",
+    ownerName: "Ana Martínez",
+    story: "Molly era muy tímida al principio, pero con paciencia y amor se ha convertido en la alegría de la casa.",
+    image: "https://images.unsplash.com/photo-1544568100-847a948585b9?q=80&w=1080&fit=crop",
+    date: "Julio 2024",
+    shelter: {
+      id: "refugio-san-roque",
+      name: "Refugio San Roque",
+    },
+  },
+  {
+    dogName: "Rex",
+    ownerName: "Familia López",
+    story: "Rex fue rescatado de una situación de abandono. Ahora es el protector y mejor amigo de los más pequeños de la familia.",
+    image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1080&fit=crop",
+    date: "Junio 2024",
+    shelter: {
+      id: "amigos-cuatro-patas",
+      name: "Amigos de Cuatro Patas",
+    },
+  },
+  {
+    dogName: "Sasha",
+    ownerName: "Roberto Sánchez",
+    story: "Sasha ha traído una nueva energía a la vida de Roberto. Son inseparables en sus caminatas matutinas.",
+    image: "https://images.unsplash.com/photo-1530281703249-017fb4c32940?q=80&w=1080&fit=crop",
+    date: "Mayo 2024",
+    shelter: {
+      id: "rescate-animal",
+      name: "Rescate Animal",
+    },
+  },
+  {
+    dogName: "Lola",
+    ownerName: "Familia Herrera",
+    story: "Lola es la perrita más cariñosa que hemos conocido. Estamos agradecidos de haberla encontrado en el refugio.",
+    image: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=1080&fit=crop",
+    date: "Abril 2024",
+    shelter: {
+      id: "caninos-911",
+      name: "Caninos 911",
+    },
+  },
 ];
 
 export const CONTACT_INFO = {

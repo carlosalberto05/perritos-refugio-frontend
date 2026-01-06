@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { SUCCESS_STORIES } from "@/data/home-data";
 import SuccessStoryCard from "../cards/SuccessStoryCard";
 import SectionHeader from "@/components/molecules/SectionHeader";
+import Button from "@/components/atoms/Button";
 
 const SuccessStoriesSection = () => {
   return (
@@ -15,9 +17,17 @@ const SuccessStoriesSection = () => {
         />
 
         <div className="space-y-12">
-          {SUCCESS_STORIES.map((story, index) => (
+          {SUCCESS_STORIES.slice(0, 2).map((story, index) => (
             <SuccessStoryCard key={index} {...story} />
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link href="/casos-de-exito">
+            <Button variant="accent" size="lg">
+              Ver más
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
