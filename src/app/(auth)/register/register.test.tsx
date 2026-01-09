@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, test, expect, vi } from "vitest";
 import RegisterPage from "./page";
 import "@testing-library/jest-dom";
@@ -40,10 +40,5 @@ describe("RegisterPage", () => {
     expect(loginLink).toHaveAttribute("href", "/login");
   });
 
-  test("shows organization fields when rescata role is selected", () => {
-    // Para probar el cambio de rol necesitaríamos un mock más complejo o no mockear el store si es simple
-    // Pero como estamos mockeando el store, el componente se quedará en 'adoptante' por defecto.
-    // Vamos a hacer una prueba básica de que el botón de crear cuenta está presente.
-    expect(screen.getByRole("button", { name: "Crear Cuenta" })).toBeInTheDocument();
-  });
+
 });

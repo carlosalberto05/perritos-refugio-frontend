@@ -1,0 +1,4 @@
+echo "🧪 Running tests before push..."
+npm run test
+
+echo "✅ All tests passed!"

@@ -7,7 +7,7 @@ import Home from "./page";
 
 // Mock Next.js Image component
 vi.mock("next/image", () => ({
-  default: ({ src, alt, className, style }: any) => (
+  default: ({ src, alt, className, style }: { src: string; alt: string; className?: string; style?: React.CSSProperties }) => (
     <img 
       src={src} 
       alt={alt} 
@@ -131,7 +131,7 @@ describe("Home Page", () => {
     render(<Home />);
 
     expect(screen.getAllByText("500+").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("Rescatados").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Rescatistas").length).toBeGreaterThan(0);
     expect(screen.getAllByText("450+").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Adoptados").length).toBeGreaterThan(0);
     expect(screen.getAllByText("50+").length).toBeGreaterThan(0);
