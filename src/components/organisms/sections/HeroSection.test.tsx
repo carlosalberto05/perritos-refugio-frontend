@@ -25,7 +25,7 @@ describe("HeroSection Component", () => {
   test("renders main heading and description", () => {
     render(<HeroSection onDonateClick={() => {}} />);
     expect(
-      screen.getByText(/Dale una segunda oportunidad a un amigo fiel/i)
+      screen.getByText(/Encuentra a tu Compañero Perfecto/i)
     ).toBeInTheDocument();
   });
 

@@ -14,7 +14,7 @@ const AboutShelterSection = () => {
             <div className="space-y-6">
               <h2>Sobre Nuestro Refugio</h2>
               <p className="text-gray-700">
-                Patitas Felices nació en 2018 con la misión de rescatar perritos
+                Huellitas nació en 2018 con la misión de rescatar perritos
                 abandonados y maltratados de las calles. Desde entonces, hemos
                 rescatado y rehabilitado a más de 500 perritos, encontrando
                 hogares amorosos para la mayoría de ellos.

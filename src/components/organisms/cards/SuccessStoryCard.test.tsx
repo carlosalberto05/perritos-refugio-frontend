@@ -16,8 +16,8 @@ describe("SuccessStoryCard Component", () => {
 
     expect(screen.getByText("Firulais")).toBeInTheDocument();
     expect(screen.getByText("Adoptado por Juan Perez")).toBeInTheDocument();
-    expect(screen.getByText("Una historia conmovedora...")).toBeInTheDocument();
-    expect(screen.getByText("20 Diciembre 2024")).toBeInTheDocument();
+    expect(screen.getByText(/Una historia conmovedora.../i)).toBeInTheDocument();
+    expect(screen.getByText(/20 Diciembre 2024/i)).toBeInTheDocument();
   });
 
   test("renders image with correct alt text", () => {

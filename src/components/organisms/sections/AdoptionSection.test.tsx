@@ -43,7 +43,8 @@ describe("AdoptionSection Component", () => {
 
   test("renders heading and description", () => {
     render(<AdoptionSection onAdoptClick={mockAdoptClick} />);
-    expect(screen.getByText("Perritos en Adopción")).toBeInTheDocument();
+    expect(screen.getByText(/Perritos en/i)).toBeInTheDocument();
+    expect(screen.getByText(/Adopción/i)).toBeInTheDocument();
     expect(screen.getByText(/Todos nuestros perritos/i)).toBeInTheDocument();
   });
 

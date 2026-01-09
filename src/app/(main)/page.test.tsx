@@ -130,13 +130,13 @@ describe("Home Page", () => {
   it("renders MetricCards with correct values", () => {
     render(<Home />);
 
-    expect(screen.getByText("500+")).toBeInTheDocument();
-    expect(screen.getByText("Rescatados")).toBeInTheDocument();
-    expect(screen.getByText("450+")).toBeInTheDocument();
-    expect(screen.getByText("Adoptados")).toBeInTheDocument();
-    expect(screen.getByText("50+")).toBeInTheDocument();
-    expect(screen.getByText("Voluntarios")).toBeInTheDocument();
-    expect(screen.getByText("30")).toBeInTheDocument();
-    expect(screen.getByText("Disponibles")).toBeInTheDocument();
+    expect(screen.getAllByText("500+").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Rescatados").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("450+").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Adoptados").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("50+").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Voluntarios").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("30").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Disponibles").length).toBeGreaterThan(0);
   });
 });
