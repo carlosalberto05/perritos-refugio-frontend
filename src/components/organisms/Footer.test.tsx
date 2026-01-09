@@ -35,23 +35,23 @@ describe("Footer Component", () => {
   // ============================================
 
   test("renders all section titles", () => {
-    expect(screen.getByText("Navigation")).toBeInTheDocument();
+    expect(screen.getByText("Navegación")).toBeInTheDocument();
     expect(screen.getByText("Ayuda")).toBeInTheDocument();
     expect(screen.getByText("Legal")).toBeInTheDocument();
   });
 
-  test("renders Navigation section links", () => {
-    expect(screen.getByRole("link", { name: "Inicio" })).toHaveAttribute(
-      "href",
-      "/"
-    );
+  test("renders Navegación section links", () => {
     expect(screen.getByRole("link", { name: "Adopción" })).toHaveAttribute(
       "href",
       "/adopcion"
     );
-    expect(screen.getByRole("link", { name: "Perritos" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Casos de éxito" })).toHaveAttribute(
       "href",
-      "/dogs"
+      "/#casos-exito"
+    );
+    expect(screen.getByRole("link", { name: "Refugios" })).toHaveAttribute(
+      "href",
+      "/refugios"
     );
 
     const contactLinks = screen.getByRole("link", { name: "Contacto" });
@@ -141,7 +141,7 @@ describe("Footer Component", () => {
 
   test("renders correct number of navigation links", () => {
     const allLinks = screen.getAllByRole("link");
-    // 1 logo + 4 Navigation + 3 Ayuda + 3 Legal = 11 total
+    // 1 logo + 4 Navegación + 2 Ayuda + 3 Legal = 10 total
     expect(allLinks).toHaveLength(10);
   });
 });

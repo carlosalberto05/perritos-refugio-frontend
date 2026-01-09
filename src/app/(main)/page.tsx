@@ -4,10 +4,12 @@ import { useState } from "react";
 
 import HeroSection from "@/components/organisms/sections/HeroSection";
 import AdoptionSection from "@/components/organisms/sections/AdoptionSection";
+import RescuersSection from "@/components/organisms/sections/RescuersSection";
 import { AdoptionModal } from "@/components/organisms/modals/AdoptionModal";
 import DonateSection from "@/components/organisms/sections/DonateSection";
 import SuccessStoriesSection from "@/components/organisms/sections/SuccessStoriesSection";
 import AboutShelterSection from "@/components/organisms/sections/AboutShelterSection";
+import SupportAppSection from "@/components/organisms/sections/SupportAppSection";
 import { ContactSection } from "@/components/organisms/sections/ContactSection";
 import { DonationModal } from "@/components/organisms/modals/DonationModal";
 
@@ -34,6 +36,9 @@ export default function Home() {
       {/* Adoption Section */}
       <AdoptionSection onAdoptClick={handleAdoptClick} />
 
+      {/* Rescuers Section */}
+      <RescuersSection />
+
       {/* Donation Section */}
       <DonateSection onDonateClick={handleDonate} />
 
@@ -41,6 +46,9 @@ export default function Home() {
       <SuccessStoriesSection />
       {/* About Shelter */}
       <AboutShelterSection />
+
+      {/* Support App Section */}
+      <SupportAppSection />
 
       {/* Contact Section */}
       <ContactSection />

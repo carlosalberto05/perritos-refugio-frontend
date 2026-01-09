@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes, ReactNode } from "react";
+import { forwardRef, InputHTMLAttributes, ReactNode, useId } from "react";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -22,6 +22,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+    const defaultId = useId();
+    const inputId = props.id || defaultId;
+
     // Contenedor principal
     const containerClasses = fullWidth ? "w-full" : "w-auto";
 
@@ -53,7 +56,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={`flex flex-col gap-1.5 ${containerClasses}`}>
         {label && (
-          <label className="text-sm font-medium text-gray-700 ml-1">
+          <label htmlFor={inputId} className="text-sm font-medium text-gray-700 ml-1">
             {label}
           </label>
         )}
@@ -66,6 +69,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
 
           <input
+            id={inputId}
             ref={ref}
             disabled={disabled}
             className={inputClasses}

@@ -66,7 +66,7 @@ describe("Dialog Component", () => {
         <DialogContent>
           <DialogTitle>Title</DialogTitle>
           <DialogDescription>Desc</DialogDescription>
-          <DialogClose>Close</DialogClose>
+          <DialogClose>Cerrar</DialogClose>
         </DialogContent>
       </Dialog>
     );
@@ -76,7 +76,7 @@ describe("Dialog Component", () => {
     expect(await screen.findByText("Title")).toBeInTheDocument();
 
     // Close it
-    await user.click(screen.getByText("Close"));
+    await user.click(screen.getByText("Cerrar"));
 
     // Verify it disappears (wait for potential animation or state update)
     await waitFor(() => {
