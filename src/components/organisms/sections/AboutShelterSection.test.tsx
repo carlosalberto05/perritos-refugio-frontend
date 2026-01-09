@@ -16,7 +16,7 @@ describe("AboutShelterSection Component", () => {
   test("renders heading and description", () => {
     render(<AboutShelterSection />);
     expect(screen.getByText("Sobre Nuestro Refugio")).toBeInTheDocument();
-    expect(screen.getByText(/Patitas Felices nació/i)).toBeInTheDocument();
+    expect(screen.getByText(/Huellitas nació/i)).toBeInTheDocument();
   });
 
   test("renders statistics", () => {
