@@ -1,0 +1,29 @@
+name: CI (Integración Continua)
+
+on:
+  pull_request:
+    branches: [main, develop] # Se activa cuando alguien abre un PR a main o a develop
+  push:
+    branches: [main, develop] # Se activa cuando alguien sube cambios directos a main o develop
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Revisar Linter
+        run: npm run lint
+
+      - name: Ejecutar Tests
+        run: npm run test
