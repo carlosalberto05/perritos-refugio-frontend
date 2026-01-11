@@ -60,7 +60,7 @@ const SectionHeader = ({
       </h2>
       {subtitle && (
         <p className="max-w-2xl mx-auto text-lg text-gray-600 font-medium italic">
-          "{subtitle}"
+          &quot;{subtitle}&quot;
         </p>
       )}
     </div>

@@ -1,4 +1,4 @@
-import { Heart, Users, PawPrint, Home as IconHome, Building2 } from "lucide-react";
+import { Heart, Users, PawPrint, Building2 } from "lucide-react";
 
 export interface MetricElement {
   IconComponent: React.ElementType;

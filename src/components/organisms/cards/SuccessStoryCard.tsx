@@ -61,7 +61,7 @@ function SuccessStoryCard({
           )}
 
           <p className="text-gray-600 leading-relaxed text-base italic">
-            "{story}"
+            &quot;{story}&quot;
           </p>
 
           <div className="pt-2">

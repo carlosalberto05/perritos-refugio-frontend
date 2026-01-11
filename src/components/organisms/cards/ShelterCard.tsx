@@ -1,6 +1,6 @@
 import Image from "../../atoms/Image";
 import Button from "../../atoms/Button";
-import { Building2, MapPin, PawPrint, Heart } from "lucide-react";
+import { MapPin, PawPrint, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 

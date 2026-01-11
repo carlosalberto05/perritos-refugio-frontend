@@ -13,7 +13,8 @@ vi.mock("../cards/MetricCard", () => ({
 
 // Mock Image de Next.js
 vi.mock("@/components/atoms/Image", () => ({
-  default: (props: any) => <img {...props} />,
+  // eslint-disable-next-line @next/next/no-img-element
+  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => <img alt="" {...props} />,
 }));
 
 describe("HeroSection Component", () => {
