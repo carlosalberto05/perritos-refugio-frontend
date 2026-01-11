@@ -11,7 +11,7 @@ describe("Image Component", () => {
   };
 
   it("renders image with required props", () => {
-    render(<Image {...defaultProps} />);
+    render(<Image {...defaultProps} alt="Test Image" />);
 
     const image = screen.getByAltText("Test Image");
     expect(image).toBeInTheDocument();
@@ -25,28 +25,28 @@ describe("Image Component", () => {
   });
 
   it("applies custom className", () => {
-    render(<Image {...defaultProps} className="custom-class" />);
+    render(<Image {...defaultProps} alt="Test Image" className="custom-class" />);
 
     const image = screen.getByAltText("Test Image");
     expect(image).toHaveClass("custom-class");
   });
 
   it("applies rounded classes when rounded is true", () => {
-    render(<Image {...defaultProps} rounded />);
+    render(<Image {...defaultProps} alt="Test Image" rounded />);
 
     const image = screen.getByAltText("Test Image");
     expect(image).toHaveClass("rounded-lg"); // Default roundedSize
   });
 
   it("applies custom rounded size", () => {
-    render(<Image {...defaultProps} rounded roundedSize="2xl" />);
+    render(<Image {...defaultProps} alt="Test Image" rounded roundedSize="2xl" />);
 
     const image = screen.getByAltText("Test Image");
     expect(image).toHaveClass("rounded-2xl");
   });
 
   it("does not apply rounded classes when rounded is false", () => {
-    render(<Image {...defaultProps} rounded={false} />);
+    render(<Image {...defaultProps} alt="Test Image" rounded={false} />);
 
     const image = screen.getByAltText("Test Image");
     expect(image.className).not.toContain("rounded");
@@ -54,7 +54,7 @@ describe("Image Component", () => {
 
   it("combines rounded and custom className", () => {
     render(
-      <Image {...defaultProps} rounded className="custom-class" />
+      <Image {...defaultProps} alt="Test Image" rounded className="custom-class" />
     );
 
     const image = screen.getByAltText("Test Image");
@@ -66,6 +66,7 @@ describe("Image Component", () => {
     render(
       <Image
         {...defaultProps}
+        alt="Test Image"
         priority
         quality={90}
       />
@@ -76,7 +77,7 @@ describe("Image Component", () => {
   });
 
   it("renders with fill prop", () => {
-    const { container } = render(
+    render(
       <div style={{ position: "relative", width: "200px", height: "200px" }}>
         <Image src="/test.jpg" alt="Fill Image" fill />
       </div>

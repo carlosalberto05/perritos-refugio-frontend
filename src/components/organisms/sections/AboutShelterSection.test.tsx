@@ -4,12 +4,13 @@ import AboutShelterSection from "./AboutShelterSection";
 
 // Mock BaseCard
 vi.mock("../cards/BaseCard", () => ({
-  default: ({ children }: any) => <div data-testid="base-card">{children}</div>,
+  default: ({ children }: { children: React.ReactNode }) => <div data-testid="base-card">{children}</div>,
 }));
 
 // Mock Image
 vi.mock("@/components/atoms/Image", () => ({
-  default: (props: any) => <img {...props} />,
+  // eslint-disable-next-line @next/next/no-img-element
+  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => <img alt="" {...props} />,
 }));
 
 describe("AboutShelterSection Component", () => {

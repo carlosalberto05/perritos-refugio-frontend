@@ -5,9 +5,8 @@ import { vi } from "vitest";
 // Mock next/image
 vi.mock("next/image", () => ({
   __esModule: true,
-  default: (props: any) => {
-    // eslint-disable-next-line @next/next/no-img-element
-    return React.createElement("img", { ...props, fill: props.fill ? "true" : undefined });
+  default: (props: React.ImgHTMLAttributes<HTMLImageElement> & { fill?: boolean }) => {
+    return React.createElement("img", { alt: "", ...props, fill: props.fill ? "true" : undefined });
   },
 }));
 

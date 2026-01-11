@@ -2,9 +2,9 @@
 
 import { useState, useMemo } from "react";
 import DogCard from "@/components/organisms/cards/DogCard";
-import { DOGS, Dog } from "@/data/home-data";
+import { DOGS } from "@/data/home-data";
 import SearchBar from "@/components/molecules/SearchBar";
-import { Filter, SortAsc, MapPin, SlidersHorizontal } from "lucide-react";
+import { MapPin, SlidersHorizontal } from "lucide-react";
 
 export default function AdoptionPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -110,7 +110,7 @@ export default function AdoptionPage() {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Ordenar por</label>
                 <select 
                   value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as any)}
+                  onChange={(e) => setSortBy(e.target.value as "distance" | "name")}
                   className="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition-all"
                 >
                   <option value="distance">Más cercanos primero</option>

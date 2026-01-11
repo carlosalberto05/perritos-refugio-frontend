@@ -31,7 +31,7 @@ describe("ShelterCard Component", () => {
   });
 
   test("does not render urgent needs if not provided", () => {
-    const { urgentNeeds, ...propsWithoutNeeds } = mockProps;
+    const propsWithoutNeeds = { ...mockProps, urgentNeeds: undefined };
     render(<ShelterCard {...propsWithoutNeeds} />);
     
     expect(screen.queryByText(/Necesidad urgente/i)).not.toBeInTheDocument();

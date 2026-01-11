@@ -51,7 +51,6 @@ describe("Header Component", () => {
 
   test("calls onClick when Donar button is clicked", () => {
     // El botón Donar solo está en el menú móvil actualmente
-    const mockFn = vi.fn();
     render(<Header />);
     
     // Abrir menú móvil para ver el botón

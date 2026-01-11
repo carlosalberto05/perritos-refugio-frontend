@@ -8,9 +8,7 @@ import {
   Mail, 
   ArrowLeft, 
   PawPrint, 
-  Info,
-  Calendar,
-  Building2
+  Info
 } from "lucide-react";
 import Link from "next/link";
 import { SHELTERS, DOGS } from "@/data/home-data";
@@ -110,7 +108,7 @@ export default function ShelterPage({ params }: PageProps) {
                 Nuestra Misión
               </div>
               <p className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-6">
-                "{shelter.mission}"
+                &quot;{shelter.mission}&quot;
               </p>
               <div className="prose prose-gray max-w-none">
                 <p className="text-lg text-gray-600 leading-relaxed">

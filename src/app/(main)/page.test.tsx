@@ -8,6 +8,7 @@ import Home from "./page";
 // Mock Next.js Image component
 vi.mock("next/image", () => ({
   default: ({ src, alt, className, style }: { src: string; alt: string; className?: string; style?: React.CSSProperties }) => (
+    // eslint-disable-next-line @next/next/no-img-element
     <img 
       src={src} 
       alt={alt} 
