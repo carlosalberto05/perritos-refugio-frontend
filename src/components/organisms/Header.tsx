@@ -13,23 +13,28 @@ const navLinks = [
 ];
 
 import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/store/useAuthStore";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
-  const user = false; // Replace with actual user authentication logic
+  const { user, logout } = useAuthStore();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const onNavigateToDashboard = () => {
-    router.push("/dashboard");
+    if (user?.rol === "rescatista") {
+      router.push("/rescatista/perritos");
+    } else {
+      router.push("/dashboard");
+    }
   };
 
-  const logout = () => {
-    // Logic to log out the user
-    console.log("Logging out...");
+  const handleLogout = () => {
+    logout();
+    router.push("/");
   };
 
   const onNavigateToLogin = () => {
@@ -77,7 +82,7 @@ export default function Header() {
                   Mi Cuenta
                 </Button>
                 <Button
-                  onClick={logout}
+                  onClick={handleLogout}
                   variant="secondary"
                   className="flex items-center gap-2 bg-white/90 backdrop-blur-sm hover:bg-white"
                 >

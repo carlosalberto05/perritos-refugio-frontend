@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useAuthStore } from "@/store/useAuthStore";
+import { useAuthStore, UserRole } from "@/store/useAuthStore";
 import Input from "@/components/atoms/Input";
 import {
   Mail,
@@ -10,9 +10,11 @@ import {
   Loader2,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const { isLoading, setLoading } = useAuthStore();
+  const { isLoading, setLoading, login } = useAuthStore();
+  const router = useRouter();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -25,10 +27,26 @@ export default function LoginPage() {
 
     try {
       console.log("Iniciando sesión con:", formData);
-      // Aquí irá la lógica de autenticación real
+      // Simulamos una respuesta exitosa
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      
+      // Creamos un usuario ficticio basado en el email para pruebas
+      const mockUser = {
+        id: "1",
+        name: "Huellitas Rescate",
+        email: formData.email,
+        rol: (formData.email.includes("admin") ? "admin" : (formData.email.includes("user") ? "adoptante" : "rescatista")) as UserRole,
+      };
+
+      login(mockUser);
+      
+      if (mockUser.rol === "rescatista") {
+        router.push("/rescatista/perritos");
+      } else {
+        router.push("/");
+      }
     } finally {
-      // Simulamos una espera
-      setTimeout(() => setLoading(false), 1500);
+      setLoading(false);
     }
   };
 
