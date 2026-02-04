@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useAuthStore } from "@/store/useAuthStore";
+import { useAuthStore, UserRole } from "@/store/useAuthStore";
 import Input from "@/components/atoms/Input";
 import {
   User,
@@ -12,6 +12,7 @@ import {
   Loader2,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
   // Traemos lo necesario de tu Store corregido
@@ -20,7 +21,9 @@ export default function RegisterPage() {
     setRegistrationRole,
     isLoading,
     setLoading,
+    login,
   } = useAuthStore();
+  const router = useRouter();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -46,11 +49,26 @@ export default function RegisterPage() {
         ...formData,
         rol: selectedRegistrationRole,
       });
-      // Aquí irá tu mutación de TanStack Query más adelante
-      // await registerMutation({ ...formData, role: selectedRegistrationRole });
+      
+      // Simulamos registro exitoso
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      
+      const mockUser = {
+        id: "2",
+        name: formData.name,
+        email: formData.email,
+        rol: selectedRegistrationRole as UserRole,
+      };
+
+      login(mockUser);
+
+      if (selectedRegistrationRole === "rescatista") {
+        router.push("/rescatista/perritos");
+      } else {
+        router.push("/");
+      }
     } finally {
-      // Simulamos una espera y quitamos el loading
-      setTimeout(() => setLoading(false), 1500);
+      setLoading(false);
     }
   };
 
