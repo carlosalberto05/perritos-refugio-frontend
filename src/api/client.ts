@@ -27,7 +27,7 @@ async function fetchApi<T>(url: string, options?: FetchOptions): Promise<T> {
       },
     });
 
-    if (response.ok) {
+    if (!response.ok) {
       throw new Error(`API error: ${response.status} ${response.statusText}`);
     }
 

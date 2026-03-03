@@ -9,7 +9,7 @@ export interface Dog {
   description: string;
   color?: string;
   distance?: number;
-  shelterId: string;
+  shelter: Shelter;
 }
 
 export interface Shelter {

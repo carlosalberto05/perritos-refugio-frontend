@@ -4,7 +4,7 @@ import { API_ENDPOINTS } from './config';
 import { SuccessStory } from '@/types/api';
 
 export const storyQueries = {
-  all: () => ['successStories'] as const,
+  all: () => ['success-stories'] as const,
   list: () => [...storyQueries.all(), 'list'] as const,
 };
 
