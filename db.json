@@ -1,0 +1,337 @@
+{
+  "dogs": [
+    {
+      "id": "1",
+      "name": "Luna",
+      "age": "2 años",
+      "size": "Mediano",
+      "breed": "Mestizo",
+      "adoptionStatus": "En adopción",
+      "image": "https://images.unsplash.com/photo-1706745262357-5ecaa3154433?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXRlJTIwcHVwcHklMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjE4OTU4Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Luna es una perrita muy cariñosa y juguetona, perfecta para familias con niños.",
+      "color": "Blanco",
+      "distance": 2.5,
+      "shelter": {
+        "id": "refugio-san-roque",
+        "name": "Refugio San Roque"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Max",
+      "age": "3 años",
+      "size": "Grande",
+      "breed": "Golden Retriever",
+      "adoptionStatus": "Adoptado",
+      "image": "https://images.unsplash.com/photo-1689185083033-fd8512790d29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fG9sZGVuJTIwcmV0cmlldmVyJTIwZG9nfGVufDF8fHwxNzYxODI2NTI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Max es un perro tranquilo y leal, ideal para personas activas que disfruten de paseos.",
+      "color": "Dorado",
+      "distance": 5.0,
+      "shelter": {
+        "id": "huellitas-felices",
+        "name": "Huellitas Felices"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Bella",
+      "age": "1 año",
+      "size": "Pequeño",
+      "breed": "Beagle",
+      "adoptionStatus": "Reservado",
+      "image": "https://images.unsplash.com/photo-1631048905843-88f82fba8fd4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fGJlYWdsZSUyMGRvZ3xlbnwxfHx8fDE3NjE5Mjg3MTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Bella es muy energética y le encanta jugar. Perfecta para hogares con espacio.",
+      "color": "Tricolor",
+      "distance": 1.2,
+      "shelter": {
+        "id": "refugio-san-roque",
+        "name": "Refugio San Roque"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Rocky",
+      "age": "4 años",
+      "size": "Grande",
+      "breed": "Husky",
+      "adoptionStatus": "En adopción",
+      "image": "https://images.unsplash.com/photo-1590419690008-905895e8fe0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fGh1c2t5JTIwZG9nfGVufDF8fHwxNzYxOTIyMDgzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Rocky es un perro noble y protector, ideal para personas con experiencia.",
+      "color": "Gris",
+      "distance": 10.5,
+      "shelter": {
+        "id": "amigos-cuatro-patas",
+        "name": "Amigos de Cuatro Patas"
+      }
+    },
+    {
+      "id": "5",
+      "name": "Coco",
+      "age": "2 años",
+      "size": "Pequeño",
+      "breed": "Mestizo",
+      "adoptionStatus": "En adopción",
+      "image": "https://images.unsplash.com/photo-1710530911048-dd0acc539612?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fHNtYWxsJTIwZG9nJTIwc2hlbHRlcnxlbnwxfHx8fDE3NjE5MzEzMDJ8MA&lib=rb-4.1.0&q=80&w=1080",
+      "description": "Coco es muy dulce y se lleva bien con otros perros. Ideal para cualquier hogar.",
+      "color": "Café",
+      "distance": 3.8,
+      "shelter": {
+        "id": "huellitas-felices",
+        "name": "Huellitas Felices"
+      }
+    },
+    {
+      "id": "6",
+      "name": "Charlie",
+      "age": "5 años",
+      "size": "Mediano",
+      "breed": "Mestizo",
+      "adoptionStatus": "En adopción",
+      "image": "https://images.unsplash.com/photo-1641349067134-245df2efdc95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fGhhcHB5JTIwcmVzY3VlJTIwZG9nfGVufDF8fHwxNzYxOTMxMzAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Charlie es un perro maduro y calmado, perfecto para personas mayores o tranquilas.",
+      "color": "Negro",
+      "distance": 0.8,
+      "shelter": {
+        "id": "rescate-animal",
+        "name": "Rescate Animal"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Duke",
+      "age": "3 años",
+      "size": "Grande",
+      "breed": "Pastor Alemán",
+      "adoptionStatus": "En adopción",
+      "image": "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fHBhc3RvciUyMGFsZW1hbiUyMGRvZ3xlbnwxfHx8fDE3NjE5Mjg3MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Duke es inteligente y leal. Necesita un dueño con experiencia en razas grandes.",
+      "color": "Negro y café",
+      "distance": 7.2,
+      "shelter": {
+        "id": "caninos-911",
+        "name": "Caninos 911"
+      }
+    },
+    {
+      "id": "8",
+      "name": "Molly",
+      "age": "1 año",
+      "size": "Pequeño",
+      "breed": "Chihuahua",
+      "adoptionStatus": "En adopción",
+      "image": "https://images.unsplash.com/photo-1561037404-61cd46aa615b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fGNoaWh1YWh1YSUyMGRvZ3xlbnwxfHx8fDE3NjE5MzEzMDN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Molly es pequeña pero con mucha energía. Perfecta para departamentos.",
+      "color": "Café",
+      "distance": 2.1,
+      "shelter": {
+        "id": "refugio-san-roque",
+        "name": "Refugio San Roque"
+      }
+    },
+    {
+      "id": "9",
+      "name": "Thor",
+      "age": "2 años",
+      "size": "Grande",
+      "breed": "Rottweiler",
+      "adoptionStatus": "Reservado",
+      "image": "https://images.unsplash.com/photo-1567752881298-894bb81f9379?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fHJvdHR3ZWlsZXIlMjBkb2d8ZW58MXx8fHwxNzYxOTMxMzA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Thor es fuerte pero muy gentil. Ideal como perro guardián.",
+      "color": "Negro",
+      "distance": 4.5,
+      "shelter": {
+        "id": "huellitas-felices",
+        "name": "Huellitas Felices"
+      }
+    },
+    {
+      "id": "10",
+      "name": "Luna",
+      "age": "6 meses",
+      "size": "Pequeño",
+      "breed": "Mestizo",
+      "adoptionStatus": "En adopción",
+      "image": "https://images.unsplash.com/photo-1591160690555-5debfba289f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fHB1cHB5JTIwZG9nfGVufDF8fHwxNzYxOTMxMzA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Cachorra adorable que necesita una familia que le dé amor y educación.",
+      "color": "Blanco y negro",
+      "distance": 1.5,
+      "shelter": {
+        "id": "amigos-cuatro-patas",
+        "name": "Amigos de Cuatro Patas"
+      }
+    },
+    {
+      "id": "11",
+      "name": "Bruno",
+      "age": "4 años",
+      "size": "Mediano",
+      "breed": "Labrador",
+      "adoptionStatus": "En adopción",
+      "image": "https://images.unsplash.com/photo-1579213838058-6e9f8d8f4e4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fGxhYnJhZG9yJTIwZG9nfGVufDF8fHwxNzYxOTMxMzA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Bruno ama el agua y jugar a buscar. Perfecto para familias activas.",
+      "color": "Negro",
+      "distance": 6.0,
+      "shelter": {
+        "id": "rescate-animal",
+        "name": "Rescate Animal"
+      }
+    },
+    {
+      "id": "12",
+      "name": "Kiara",
+      "age": "2 años",
+      "size": "Mediano",
+      "breed": "Pitbull",
+      "adoptionStatus": "En adopción",
+      "image": "https://images.unsplash.com/photo-1517849845537-4d257902454a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fHBpdGJ1bGwlMjBkb2d8ZW58MXx8fHwxNzYxOTMxMzA3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Kiara es juguetona y necesita mucho ejercicio. Ideal para personas dinámicas.",
+      "color": "Café",
+      "distance": 3.2,
+      "shelterId": {
+        "id": "caninos-911",
+        "name": "Caninos 911"
+      }
+    }
+  ],
+  "shelters": [
+    {
+      "id": "refugio-san-roque",
+      "name": "Refugio San Roque",
+      "logo": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=200&h=200&fit=crop",
+      "image": "https://images.unsplash.com/photo-1444212477490-ca407925329e?q=80&w=1080&fit=crop",
+      "rescuedCount": 45,
+      "location": "CDMX, México",
+      "state": "CDMX",
+      "description": "Dedicados al rescate y rehabilitación de perros en situación de calle desde hace 10 años.",
+      "mission": "Nuestra misión es eradicate el abandono y fomentar la adopción responsable a través de la educación y el rescate activo.",
+      "contactEmail": "contacto@sanroque.org",
+      "contactPhone": "+52 55 9876 5432",
+      "urgentNeeds": "Alimento para cachorros y cobijas."
+    },
+    {
+      "id": "huellitas-felices",
+      "name": "Huellitas Felices",
+      "logo": "https://images.unsplash.com/photo-1556227191-d24277708304?q=80&w=200&h=200&fit=crop",
+      "image": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1080&fit=crop",
+      "rescuedCount": 32,
+      "location": "Guadalajara, Jalisco",
+      "state": "Jalisco",
+      "description": "Un hogar temporal lleno de amor para aquellos que no tienen voz.",
+      "mission": "Brindar atención médica y emocional a perros rescatados, preparándolos para encontrar su familia definitiva.",
+      "contactEmail": "hola@huellitasfelices.org",
+      "contactPhone": "+52 33 1234 5678",
+      "urgentNeeds": "Tratamientos para desparasitación."
+    },
+    {
+      "id": "amigos-cuatro-patas",
+      "name": "Amigos de Cuatro Patas",
+      "logo": "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=200&h=200&fit=crop",
+      "image": "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=1080&fit=crop",
+      "rescuedCount": 28,
+      "location": "Monterrey, NL",
+      "state": "Nuevo León",
+      "description": "Comprometidos con el bienestar animal y la búsqueda de hogares amorosos.",
+      "mission": "Crear una comunidad de rescatistas unidos para salvar vidas y promover leyes de protección animal.",
+      "contactEmail": "info@amigoscuatropatas.mx",
+      "contactPhone": "+52 81 8765 4321"
+    },
+    {
+      "id": "rescate-animal",
+      "name": "Rescate Animal",
+      "logo": "https://images.unsplash.com/photo-1544568100-847a948585b9?q=80&w=200&h=200&fit=crop",
+      "image": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1080&fit=crop",
+      "rescuedCount": 15,
+      "location": "Puebla, Puebla",
+      "state": "Puebla",
+      "description": "Pequeño pero con gran corazón, rescatando perritos en Puebla.",
+      "mission": "Convertir cada historia de maltrato en una de felicidad.",
+      "contactEmail": "contacto@rescateanimal.mx",
+      "contactPhone": "+52 22 1234 5678"
+    },
+    {
+      "id": "caninos-911",
+      "name": "Caninos 911",
+      "logo": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=200&h=200&fit=crop",
+      "image": "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=1080&fit=crop",
+      "rescuedCount": 60,
+      "location": "Villahermosa, Tabasco",
+      "state": "Tabasco",
+      "description": "El refugio más grande de Tabasco, salvando vidas desde hace años.",
+      "mission": "Nuestra prioridad es el rescate de perros en situaciones críticas de maltrato o abandono.",
+      "contactEmail": "ayuda@caninos911.org",
+      "contactPhone": "+52 993 123 4567",
+      "urgentNeeds": "Apoyo para cirugías ortopédicas."
+    }
+  ],
+  "success-stories": [
+    {
+      "id": "1",
+      "dogName": "Toby",
+      "ownerName": "Familia Rodríguez",
+      "story": "Toby llegó al refugio en condiciones difíciles, pero hoy es parte de una familia amorosa. Los Rodríguez no pueden imaginar su vida sin él.",
+      "image": "https://images.unsplash.com/photo-1654053284918-42dadb960669?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fHNlYXJjaHwxfHxkb2clMjBhZG9wdGlvbiUyMGZhbWlseXxlbnwxfHx8fDE3NjE5MzEzMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "date": "Septiembre 2024",
+      "shelterId": "huellitas-felices"
+    },
+    {
+      "id": "2",
+      "dogName": "Nina",
+      "ownerName": "María González",
+      "story": "Nina fue rescatada de la calle con múltiples heridas. Después de su recuperación, encontró un hogar lleno de amor donde ahora vive feliz.",
+      "image": "https://images.unsplash.com/photo-1700665537604-412e89a285c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHx8fHNlYXJjaHwxfHxhbmltYWwlMjBzaGVsdGVyJTIwdm9sdW50ZWVyfGVufDF8fHx8MTc2MTg5NTg2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "date": "Agosto 2024",
+      "shelterId": "refugio-san-roque"
+    },
+    {
+      "id": "3",
+      "dogName": "Bruno",
+      "ownerName": "Carlos Pérez",
+      "story": "Bruno pasó 2 años en el refugio esperando a su humano ideal. Hoy vive feliz en una casa con un gran jardín.",
+      "image": "https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=1080&fit=crop",
+      "date": "Octubre 2024",
+      "shelterId": "huellitas-felices"
+    },
+    {
+      "id": "4",
+      "dogName": "Molly",
+      "ownerName": "Ana Martínez",
+      "story": "Molly era muy tímida al principio, pero con paciencia y amor se ha convertido en la alegría de la casa.",
+      "image": "https://images.unsplash.com/photo-1544568100-847a948585b9?q=80&w=1080&fit=crop",
+      "date": "Julio 2024",
+      "shelterId": "refugio-san-roque"
+    },
+    {
+      "id": "5",
+      "dogName": "Rex",
+      "ownerName": "Familia López",
+      "story": "Rex fue rescatado de una situación de abandono. Ahora es el protector y mejor amigo de los más pequeños de la familia.",
+      "image": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1080&fit=crop",
+      "date": "Junio 2024",
+      "shelterId": "amigos-cuatro-patas"
+    },
+    {
+      "id": "6",
+      "dogName": "Sasha",
+      "ownerName": "Roberto Sánchez",
+      "story": "Sasha ha traído una nueva energía a la vida de Roberto. Son inseparables en sus caminatas matutinas.",
+      "image": "https://images.unsplash.com/photo-1530281703249-017fb4c32940?q=80&w=1080&fit=crop",
+      "date": "Mayo 2024",
+      "shelterId": "rescate-animal"
+    },
+    {
+      "id": "7",
+      "dogName": "Lola",
+      "ownerName": "Familia Herrera",
+      "story": "Lola es la perrita más cariñosa que hemos conocido. Estamos agradecidos de haberla encontrado en el refugio.",
+      "image": "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=1080&fit=crop",
+      "date": "Abril 2024",
+      "shelterId": "caninos-911"
+    }
+  ],
+  "contactInfo": {
+    "phone": "+52 55 1234 5678",
+    "email": "contacto@patitasfelices.org",
+    "adoptionEmail": "adopciones@patitasfelices.org",
+    "location": "Ciudad de México, CDMX"
+  }
+}
