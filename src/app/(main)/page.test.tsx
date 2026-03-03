@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@/test-utils";
 import userEvent from "@testing-library/user-event";
 import Home from "./page";
 
@@ -76,13 +76,13 @@ describe("Home Page", () => {
       name: /quiero adoptarlo/i,
     });
 
-    // Click the fourth dog's (Rocky) adopt button
-    await user.click(adoptButtons[3]);
+    // Click the third dog's (Bella) adopt button
+    await user.click(adoptButtons[2]);
 
-    // Check if the modal appears with Rocky's name
+    // Check if the modal appears with Bella's name
     await waitFor(() => {
       expect(
-        screen.getByText(/¡Gracias por tu interés en adoptar a Rocky!/i)
+        screen.getByText(/¡Gracias por tu interés en adoptar a Bella!/i)
       ).toBeInTheDocument();
     });
   });
@@ -116,16 +116,18 @@ describe("Home Page", () => {
     });
   });
 
-  it("renders all dog cards", () => {
+  it("renders the first 3 dog cards", () => {
     render(<Home />);
 
-    // Check that all 6 dogs are rendered
+    // Check that the first 3 dogs are rendered
     expect(screen.getByText("Luna")).toBeInTheDocument();
     expect(screen.getByText("Max")).toBeInTheDocument();
     expect(screen.getByText("Bella")).toBeInTheDocument();
-    expect(screen.getByText("Rocky")).toBeInTheDocument();
-    expect(screen.getByText("Coco")).toBeInTheDocument();
-    expect(screen.getByText("Charlie")).toBeInTheDocument();
+    
+    // Check that others are not rendered (due to slice(0,3) in AdoptionSection)
+    expect(screen.queryByText("Rocky")).not.toBeInTheDocument();
+    expect(screen.queryByText("Coco")).not.toBeInTheDocument();
+    expect(screen.queryByText("Charlie")).not.toBeInTheDocument();
   });
 
   it("renders MetricCards with correct values", () => {
