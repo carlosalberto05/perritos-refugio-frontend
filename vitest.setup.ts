@@ -21,3 +21,52 @@ vi.mock("next/navigation", () => ({
   useSearchParams: () => new URLSearchParams(),
   usePathname: () => "",
 }));
+
+// Mock API hooks
+vi.mock("@/api/dogs", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/api/dogs")>();
+  const { DOGS } = await import("@/data/home-data");
+  return {
+    ...actual,
+    useDogs: vi.fn(() => ({
+      data: DOGS,
+      isLoading: false,
+      error: null,
+      status: "success",
+    })),
+    useAvailableDogs: vi.fn(() => ({
+      data: DOGS.filter(d => d.adoptionStatus === "En adopción"),
+      isLoading: false,
+      error: null,
+      status: "success",
+    })),
+  };
+});
+
+vi.mock("@/api/shelters", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/api/shelters")>();
+  const { SHELTERS } = await import("@/data/home-data");
+  return {
+    ...actual,
+    useShelters: vi.fn(() => ({
+      data: SHELTERS,
+      isLoading: false,
+      error: null,
+      status: "success",
+    })),
+  };
+});
+
+vi.mock("@/api/successStories", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/api/successStories")>();
+  const { SUCCESS_STORIES } = await import("@/data/home-data");
+  return {
+    ...actual,
+    useSuccessStories: vi.fn(() => ({
+      data: SUCCESS_STORIES,
+      isLoading: false,
+      error: null,
+      status: "success",
+    })),
+  };
+});
