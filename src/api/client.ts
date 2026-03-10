@@ -31,7 +31,9 @@ async function fetchApi<T>(url: string, options?: FetchOptions): Promise<T> {
       throw new Error(`API error: ${response.status} ${response.statusText}`);
     }
 
-    return await response.json();
+    const data = await response.json();
+    // Si la respuesta viene envuelta en ApiResponse { success, data, message }, extraemos .data
+    return data && typeof data === 'object' && 'data' in data ? data.data : data;
   } catch (error) {
     console.error('Fetch API error:', error);
     throw error;
