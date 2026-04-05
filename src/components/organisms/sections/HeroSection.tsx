@@ -16,17 +16,17 @@ export function HeroSection({ onDonateClick }: HeroSectionProps) {
 
   return (
     <section className="relative pt-20 min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
-          alt="Happy shelter dogs"
+          alt="Happy smiling dog"
           fill
-          className={"object-cover"}
+          className={"object-cover scale-105 transition-transform duration-700"}
           src={
-            "https://images.unsplash.com/photo-1720705313994-12cd7930da3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMHNoZWx0ZXIlMjBkb2dzfGVufDF8fHx8MTc2NDYxMTg2M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=2000"
           }
         />
         <div className="absolute inset-0 gradient-hero-overlay" />
-        {/* <div className="absolute inset-0 backdrop-blur-[2px]" /> */}
+        <div className="absolute inset-0 backdrop-blur-[1px]" />
       </div>
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-20">

@@ -1,3 +1,4 @@
+import { ApiResponse } from '../types/api';
 import { apiConfig } from './config';
 
 export interface FetchOptions extends RequestInit {
@@ -31,9 +32,8 @@ async function fetchApi<T>(url: string, options?: FetchOptions): Promise<T> {
       throw new Error(`API error: ${response.status} ${response.statusText}`);
     }
 
-    const data = await response.json();
-    // Si la respuesta viene envuelta en ApiResponse { success, data, message }, extraemos .data
-    return data && typeof data === 'object' && 'data' in data ? data.data : data;
+    const { data: responseData }: ApiResponse<T> = await response.json();
+    return responseData;
   } catch (error) {
     console.error('Fetch API error:', error);
     throw error;
