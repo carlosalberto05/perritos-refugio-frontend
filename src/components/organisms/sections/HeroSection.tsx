@@ -20,7 +20,7 @@ export function HeroSection({ onDonateClick }: HeroSectionProps) {
         <Image
           alt="Happy smiling dog"
           fill
-          className={"object-cover scale-105 transition-transform duration-700"}
+          className={"object-cover scale-105"}
           src={
             "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=2000"
           }

@@ -58,7 +58,7 @@ export default function AdoptionPage() {
 
   const sizes = ['Pequeño', 'Mediano', 'Grande'];
   const colors = Array.from(
-    new Set((dogs || []).map((dog) => dog.color).filter(Boolean))
+    new Set((dogs || []).map((dog) => dog.color).filter((c): c is string => !!c))
   );
 
   return (

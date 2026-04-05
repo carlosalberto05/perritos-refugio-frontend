@@ -28,12 +28,11 @@ async function fetchApi<T>(url: string, options?: FetchOptions): Promise<T> {
       },
     });
 
-    if (!response.ok) {
-      throw new Error(`API error: ${response.status} ${response.statusText}`);
+    const result: ApiResponse<T> = await response.json();
+    if (!result.success) {
+      throw new Error(result.message || 'API Error');
     }
-
-    const { data: responseData }: ApiResponse<T> = await response.json();
-    return responseData;
+    return result.data;
   } catch (error) {
     console.error('Fetch API error:', error);
     throw error;
