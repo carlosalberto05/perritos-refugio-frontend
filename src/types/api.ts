@@ -1,15 +1,26 @@
+// Respuesta genérica de la API
+export interface ApiResponse<T> {
+  success: boolean;
+  message: string;
+  data: T;
+  errors?: Array<{ field: string; message: string }>;
+}
+
+export type AdoptionStatus = 'En adopción' | 'Adoptado' | 'Reservado';
+
 export interface Dog {
   id: string;
   name: string;
   age: string;
   size: string;
   breed: string;
-  adoptionStatus: 'En adopción' | 'Adoptado' | 'Reservado';
+  adoptionStatus: AdoptionStatus;
   image: string;
   description: string;
-  color?: string;
-  distance?: number;
-  shelter: Shelter;
+  color: string | null;
+  distance: number | null;
+  shelterId: string | null;
+  shelter?: Shelter;
 }
 
 export interface Shelter {
@@ -24,7 +35,8 @@ export interface Shelter {
   mission: string;
   contactEmail: string;
   contactPhone: string;
-  urgentNeeds?: string;
+  urgentNeeds: string | null;
+  dogs?: Dog[];
 }
 
 export interface SuccessStory {
@@ -34,5 +46,6 @@ export interface SuccessStory {
   story: string;
   image: string;
   date: string;
-  shelterId?: string;
+  shelterId: string | null;
+  shelter?: Shelter;
 }

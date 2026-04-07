@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* ========================================
    TOKENS DE DISEÑO
@@ -33,14 +33,20 @@
   /* === GLASSMORPHISM TOKENS === */
   /* Usados en cards, header, etc. */
 
-
   /* === FUENTE === */
   --font-sans: var(--font-poppins), system-ui, sans-serif;
 
   /* === ANIMACIONES === */
   @keyframes pulse-slow {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.05); }
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
   }
   --animate-pulse-slow: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -50,8 +56,13 @@
    ======================================== */
 body {
   @apply min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50;
-  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #1F2937;
+  font-family:
+    var(--font-poppins),
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  color: #1f2937;
 }
 
 html {
@@ -123,7 +134,7 @@ html {
 
 /* Gradiente del hero background */
 .gradient-hero-overlay {
-  @apply bg-gradient-to-br from-blue-900/80 via-cyan-900/70 to-sky-900/80;
+  @apply bg-gradient-to-t from-black/80 via-black/30 to-transparent;
 }
 
 /* Gradiente sutil de sección */
