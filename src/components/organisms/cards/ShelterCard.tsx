@@ -11,7 +11,7 @@ export interface ShelterCardProps {
   image: string;
   rescuedCount: number;
   location: string;
-  urgentNeeds?: string;
+  urgentNeeds?: string | null;
   className?: string;
 }
 
