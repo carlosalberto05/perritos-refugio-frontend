@@ -2,9 +2,9 @@ name: CI (Integración Continua)
 
 on:
   pull_request:
-    branches: [main, develop] # Se activa cuando alguien abre un PR a main o a develop
+    branches: [main, develop]
   push:
-    branches: [main, develop] # Se activa cuando alguien sube cambios directos a main o develop
+    branches: [main, develop]
 
 jobs:
   build-and-test:
@@ -27,3 +27,6 @@ jobs:
 
       - name: Ejecutar Tests
         run: npm run test
+
+      - name: Build del proyecto
+        run: npm run build
