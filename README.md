@@ -13,7 +13,7 @@
 
 ## ✨ Características Principales
 
-- **🎨 Diseño UI/UX Premium:** Interfaz moderna, limpia y *responsive*, construida con **Tailwind CSS**.
+- **🎨 Diseño UI/UX Premium:** Interfaz moderna, limpia y _responsive_, construida con **Tailwind CSS**.
 - **🔐 Autenticación Segura:** Sistema de registro y login con roles diferenciados (**Adoptante** y **Rescatista**).
 - **⚡ Alto Rendimiento:** Optimización gracias a **Next.js App Router** y Server Components.
 - **📱 Mobile First:** Experiencia perfecta en dispositivos móviles, tablets y escritorio.
@@ -25,14 +25,14 @@
 
 La aplicación está construida sobre bases sólidas para garantizar escalabilidad y mantenibilidad:
 
-| Categoría | Tecnología | Descripción |
-|-----------|------------|-------------|
-| **Core** | ![Next.js](https://img.shields.io/badge/-Next.js-000000?logo=next.js&logoColor=white) | Framework React de producción (App Router). |
-| **Lenguaje** | ![TypeScript](https://img.shields.io/badge/-TypeScript-007ACC?logo=typescript&logoColor=white) | Superset de JS para un código robusto y tipado. |
-| **Estilos** | ![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white) | Framework CSS *utility-first* para diseño ágil. |
-| **Estado** | ![Zustand](https://img.shields.io/badge/-Zustand-orange) | Manejo de estado global minimalista y rápido. |
-| **Data Fetching** | ![TanStack Query](https://img.shields.io/badge/-TanStack_Query-FF4154?logo=react-query&logoColor=white) | Gestión asíncrona de datos del servidor. |
-| **Testing** | ![Vitest](https://img.shields.io/badge/-Vitest-6E9F18?logo=vitest&logoColor=white) | Pruebas unitarias rápidas y ligeras. |
+| Categoría         | Tecnología                                                                                              | Descripción                                     |
+| ----------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| **Core**          | ![Next.js](https://img.shields.io/badge/-Next.js-000000?logo=next.js&logoColor=white)                   | Framework React de producción (App Router).     |
+| **Lenguaje**      | ![TypeScript](https://img.shields.io/badge/-TypeScript-007ACC?logo=typescript&logoColor=white)          | Superset de JS para un código robusto y tipado. |
+| **Estilos**       | ![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)    | Framework CSS _utility-first_ para diseño ágil. |
+| **Estado**        | ![Zustand](https://img.shields.io/badge/-Zustand-orange)                                                | Manejo de estado global minimalista y rápido.   |
+| **Data Fetching** | ![TanStack Query](https://img.shields.io/badge/-TanStack_Query-FF4154?logo=react-query&logoColor=white) | Gestión asíncrona de datos del servidor.        |
+| **Testing**       | ![Vitest](https://img.shields.io/badge/-Vitest-6E9F18?logo=vitest&logoColor=white)                      | Pruebas unitarias rápidas y ligeras.            |
 
 ---
 
@@ -66,9 +66,9 @@ src/
 ### 🧩 Patrones de Diseño
 
 1.  **Atomic Design:** Permite construir interfaces consistentes reutilizando componentes desde lo más básico (átomos) hasta lo más complejo (organismos).
-2.  **Route Groups:** Uso de `(auth)` y `(main)` en Next.js para aplicar diferentes ***Layouts*** sin afectar la URL final.
-    *   `Register/Login`: Sin Header/Footer para minimizar distracciones.
-    *   `Home/Dashboard`: Layout completo con navegación.
+2.  **Route Groups:** Uso de `(auth)` y `(main)` en Next.js para aplicar diferentes **_Layouts_** sin afectar la URL final.
+    - `Register/Login`: Sin Header/Footer para minimizar distracciones.
+    - `Home/Dashboard`: Layout completo con navegación.
 3.  **Server & Client Components:** Separación estratégica para optimizar el SEO y la interactividad.
 
 ---
@@ -78,24 +78,28 @@ src/
 Sigue estos pasos para levantar el entorno de desarrollo localmente.
 
 ### Prerrequisitos
-*   Node.js (v18 o superior)
-*   npm o pnpm
+
+- Node.js (v18 o superior)
+- npm o pnpm
 
 ### Instalación
 
 1.  **Clonar el repositorio:**
+
     ```bash
     git clone https://github.com/tu-usuario/perritos-refugio-frontend.git
     cd perritos-refugio-frontend
     ```
 
 2.  **Instalar dependencias:**
+
     ```bash
     npm install
     ```
 
 3.  **Configurar variables de entorno:**
     Crea un archivo `.env.local` en la raíz:
+
     ```bash
     NEXT_PUBLIC_API_URL="http://localhost:3001/api/v1"
     ```
@@ -128,14 +132,44 @@ npm run test:cov
 
 ## 🤝 Contribución
 
-¡Las contribuciones son bienvenidas! Si quieres mejorar Huellitas:
+¡Las contribuciones son bienvenidas! Consulta nuestra [Guía de Contribución](./CONTRIBUTING.md) para más detalles.
+
+### 📋 Archivos para Desarrolladores
+
+| Archivo                                                                | Descripción                                          |
+| ---------------------------------------------------------------------- | ---------------------------------------------------- |
+| [CONTRIBUTING.md](./CONTRIBUTING.md)                                   | Guía completa de contribución y estándares de código |
+| [.github/pull_request_template.md](./.github/pull_request_template.md) | Template para crear PRs                              |
+| [.github/workflows/ci.yml](./.github/workflows/ci.yml)                 | Pipeline de CI/CD                                    |
+| [.github/CODEOWNERS](./.github/CODEOWNERS)                             | Propietarios de código                               |
+| [AGENTS.md](./AGENTS.md)                                               | Directrices para agentes IA                          |
+
+### 🚀 Flujo de Contribución
 
 1.  Haz un Fork del proyecto.
-2.  Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`).
-3.  Haz tus commits (`git commit -m 'Add some AmazingFeature'`).
-4.  Haz Push (`git push origin feature/AmazingFeature`).
-5.  Abre un Pull Request.
+2.  Crea una rama para tu feature desde `develop`:
+    ```bash
+    git checkout develop
+    git pull origin develop
+    git checkout -b feature/tu-feature
+    ```
+3.  Haz tus commits usando [Conventional Commits](https://www.conventionalcommits.org/):
+    ```bash
+    git commit -m "feat(components): add new dog card"
+    ```
+4.  Verifica que todo funcione:
+    ```bash
+    npm run lint
+    npm run test
+    npm run build
+    ```
+5.  Haz Push y abre un Pull Request usando el [template](./.github/pull_request_template.md).
 
 ---
 
-Hecho con ❤️ por **Carlos Alberto Lira** 🐾.
+## 📄 Documentación Adicional
+
+- **Variables de Entorno:** Crear `.env.local` con `NEXT_PUBLIC_API_URL`
+- **Testing:** `npm run test` (27 tests pasando)
+- **Linting:** `npm run lint`
+- **Build:** `npm run build`
