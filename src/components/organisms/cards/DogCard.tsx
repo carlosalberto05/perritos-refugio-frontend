@@ -13,6 +13,7 @@ export interface DogCardProps {
   description: string;
   imageUrl: string;
   imageAlt?: string;
+  priority?: boolean;
   adoptionStatus?: "En adopción" | "Adoptado" | "Reservado";
   shelter?: {
     id: string;
@@ -31,6 +32,7 @@ const DogCard = ({
   description,
   imageUrl,
   imageAlt = name,
+  priority = false,
   adoptionStatus = "En adopción",
   shelter,
   onAdoptClick,
@@ -64,6 +66,7 @@ const DogCard = ({
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={priority}
         />
 
         {/* Badge de Estado usando Badge molecule */}
