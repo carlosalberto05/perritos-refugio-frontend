@@ -43,7 +43,7 @@ export default function LoginPage() {
       if (mockUser.rol === "rescatista") {
         router.push("/rescatista/perritos");
       } else {
-        router.push("/");
+        router.push("/dashboard");
       }
     } finally {
       setLoading(false);
