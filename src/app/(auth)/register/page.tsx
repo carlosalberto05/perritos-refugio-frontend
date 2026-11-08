@@ -65,7 +65,7 @@ export default function RegisterPage() {
       if (selectedRegistrationRole === "rescatista") {
         router.push("/rescatista/perritos");
       } else {
-        router.push("/");
+        router.push("/dashboard");
       }
     } finally {
       setLoading(false);
